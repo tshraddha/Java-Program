@@ -234,6 +234,7 @@ public void  Power(int times)
 	  {
 	
 		 double r=Math.pow(2, i); 
+		 
 		System.out.println("2^"+i+"="+r);		 
 	  }
 	
@@ -689,12 +690,13 @@ public void anagramDetect(String string1,String string2)
 /**
  * Function to find the Prime Number.
  */
-public void primeNumber()
+public int[] primeNumber()
 {
 	
 	
 	int i,num,numOfPrime=0,k=0;
 	
+	int[] primeNumArray1=new int[100];
 	
 	for(num=2;num<=100;num++)
 	{
@@ -711,26 +713,34 @@ public void primeNumber()
 		}
 		if(count==2)
 		{
-			//numOfPrime++;
+			numOfPrime++;
 			
 		System.out.println(""+num);	
 		
-		//int[] primeNumArray1=new int[numOfPrime];
 		
-		  // primeNumArray1[k]=num;
+		
+		  primeNumArray1[k]=num;
 		   
-		   //k++;
+		   k++;
 		}
-
 	}
-	
+		
+		for(i=0;i<numOfPrime;i++)
+		{
+System.out.println( primeNumArray1[i]);
+	}
+	return primeNumArray1;
 }
 
 //Program to find 1 to 100 prime number that are anagram and palindrome.
 
-public void primeNumAnagram()
+public void primeNumAnagram(int[] primeNumber)
 {
-	
+	int i;
+	for(i=0;i<primeNumber.length;i++)
+	{
+		for
+	}
 }
 
 
@@ -801,7 +811,7 @@ public void insertionSortInt()
 	{
 		for( j=i+1;j<position-1;j++)
 		{
-			if()
+	//		
 			
 	}
 	}
@@ -886,6 +896,36 @@ public void bubbleSortString()
 	}
 	
 }
+
+// 9) Merge Sort
+
+public void merge(int n1,int n2)
+{
+	int i;
+	
+	int array1[]=new int[n1];
+	
+	for(i=0;i<n1;i++)
+	{
+		array1[i]=inputInteger();
+		
+	}
+	
+	int array2[]=new int[n2];
+	
+	for(i=0;i<n2;i++)
+	{
+		array2[i]=inputInteger();
+	}
+
+}
+
+
+
+
+
+
+
 // 10) Vending Machine.
 
 /**
@@ -992,25 +1032,190 @@ public void monthPayment(double principal,double year,double rate)
  * 
  * @param number: Takes number from user to find the square root.
  */
-public void computeSqrtRoot(float number)
+public void computeSqrtRoot(double number)
 {
-	float sqrtRoot=0;
-	float temp=0;
-	temp=number/2;
-	while(number>=0)
+	double temp;
+	double epsilon=1e-15;
+	temp=number;
+	while(Math.abs(temp-(number/temp))>epsilon*temp)
 	{
-		sqrtRoot=temp-((temp*temp)-number)/(2*temp);
-		float value=Math.abs(temp-sqrtRoot);
-		if(value<0.001)
+	temp=((number/temp)+temp)/2.0;
+	}
+	System.out.println("the square root using Newton's Method:"+temp);
+		
+}
+
+
+// 15) Program to convert a static function to Binary.
+
+
+/**
+ * Function to convert decimal number to binary.
+ * 
+ * @param decimalNum:the user decimal integer.
+ */
+
+/*public int[] convertBinary(int decimalNum)
+{
+	int arrayBinary1[]=new int[20];
+	int i=0,count=0;
+  while(decimalNum>0)
+{
+	int value=decimalNum%2;
+	if(value==0)
+	{
+		arrayBinary1[i]=0;
+		i++;
+	}
+	else
+	{
+		arrayBinary1[i]=1;
+		i++;
+	}
+	
+	count++;
+	decimalNum=decimalNum/2;
+	
+}
+  
+  int[] arrayBinary11=new int[count+1];
+  
+ 
+  
+for(i=arrayBinary11.length-1;i>=0;i--)
+{
+	arrayBinary11[i]=arrayBinary1[i];
+	System.out.print(arrayBinary11[i]);
+}
+	return arrayBinary11;
+}
+{
+	
+}*/
+
+
+ 
+/**
+ * Function to convert decimal number to binary.
+ * 
+ * @param decimalNum:User input to convert into binary.
+ * @return
+ */
+public String convertBinary(int decimalNum)
+{
+	String string1="";
+	int value=0;
+	while(decimalNum>0)
+	{
+		value=decimalNum%2;
+		
+		string1=value+string1;
+		
+		decimalNum=decimalNum/2;
+		
+	}
+	
+	
+	while(string1.length()<8)
+	{
+		string1=0+string1;
+	}
+System.out.println("The converted decimal number to binary is: "+string1);
+	return string1;
+}
+
+
+/*public String convertDecimal(String binaryString)
+{
+	String sum="";
+	
+	int binaryNum = Integer.parseInt(binaryString);			
+System.out.println(binaryNum);
+	for(int i=binaryNum;i<=0;i++)
+	{
+		while(binaryNum!=0)
 		{
-			number=sqrtRoot;
-		}
-		else
-		{
-			temp=sqrtRoot;
+			sum=sum+((binaryNum%10)*Math.pow(2, i));
+			System.out.println(sum); 
+			binaryNum=binaryNum/10;
 		}
 	}
 	
+	
+	return sum;
+}*/
+
+public void convertDecimal(String binaryString )
+{
+char[] arrayBinary=binaryString.toCharArray();
+
+
+double sum=0;
+
+for(int i=0;i<arrayBinary.length;i++)
+{
+
+	int binaryNum = Integer.parseInt(Character.toString(arrayBinary[i]));	
+	sum=sum+((binaryNum)*Math.pow(2, i));
+				
+}
+System.out.println(sum);
+
+}
+
+/**
+ * Function to swap nibbles.
+ * 
+ * @param decimalNum: User input in decimal form.
+ */
+public String swap(int decimalNum)
+{
+	String a=convertBinary(decimalNum);
+	
+	
+	String string1,string2,temp1,temp2,temp;
+	
+	  string1=a.substring(0, 4);
+	 temp1=string1;
+	 System.out.println("First half of string before swapping:"+temp1);
+	 string2=a.substring(4, 8);
+	 temp2=string2;
+	 System.out.println("Later half of string before swapping:"+temp2);
+	 
+	 temp=string1;
+	 string2=string1;
+	 string1=temp;
+	 System.out.println("Strings after swapping:");
+	 System.out.println(string1);
+	 System.out.println(string2);
+	String stringAfterSwap=string1+string2;
+	System.out.println(stringAfterSwap);
+
+	return stringAfterSwap;
+}
+
+
+/**
+ * 
+ * 
+ * @param stringAfterSwap
+ */
+public void convertDecimal1(String stringAfterSwap )
+{
+char[] arrayBinary=stringAfterSwap.toCharArray();
+
+
+double sum=0;
+
+for(int i=0;i<arrayBinary.length;i++)
+{
+
+	int binaryNum = Integer.parseInt(Character.toString(arrayBinary[i]));	
+	sum=sum+((binaryNum)*Math.pow(2, i));
+				
+}
+System.out.println(sum);
+
 }
 
 

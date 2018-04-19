@@ -15,7 +15,11 @@ public class PowerOf2 {
 
 		Utility utility = new Utility();
 
-		int times = Integer.parseInt(args[0]);
+		System.out.println("Enter number of times: ");
+		
+		//int times = Integer.parseInt(args[0]);
+		
+		int times=utility.inputInteger();
 
 		System.out.println("a table of the powers of 2 are :");
 

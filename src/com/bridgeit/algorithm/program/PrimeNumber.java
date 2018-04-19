@@ -17,7 +17,7 @@ public class PrimeNumber {
 
 		System.out.println("The Prime Numbers from 1 to 100 are: ");
 
-		utility.primeNumber();
+		int[] primeNumber=utility.primeNumber();
 
 	}
 }

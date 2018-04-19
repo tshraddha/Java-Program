@@ -2,7 +2,7 @@
  * Purpose: Program Anagram Detection.
  * 
  * @author Shraddha Thanekar
- * @since  18-04-2018
+ * @since  19-04-2018
  *
  */
 package com.bridgeit.algorithm.program;
@@ -17,9 +17,9 @@ public class PrimeNumberAnagramPalindrome {
 		
 		System.out.println("The prime number from 1 to 100 are:");
 		
-		utility.primeNumber();
+		int PrimeNumber[]=utility.primeNumber();
 		
-		utility.primeNumAnagram();
+		utility.primeNumAnagram(PrimeNumber[]);
 		
 
 	}

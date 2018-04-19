@@ -8,17 +8,19 @@ package com.bridgeit.algorithm.program;
 
 import com.bridgeit.utility.Utility;
 
-public class Square {
+public class BinarySwap {
 
 	public static void main(String[] args) {
 
 		Utility utility = new Utility();
 
-		System.out.println("Enter a number: ");
+		System.out.println("Enter a number:");
 
-		double number = utility.inputDouble();
+		int decimalNum = utility.inputInteger();
 
-		utility.computeSqrtRoot(number);
+		String swappedString=utility.swap(decimalNum);
+		
+		utility.convertDecimal1(swappedString);
 
 	}
 
