@@ -17,13 +17,13 @@ public class AnagramDetection {
 
 		System.out.println("Enter the first String:");
 
-		String string1 = utility.inputString();
+		String string1 = utility.inputString1();
 
 		System.out.println("Enter the second String:");
 
-		String string2 = utility.inputString();
+		String string2 = utility.inputString1();
 
-	//System.out.println("State whether the string is Anagram or Not..");
+	System.out.println("State whether the string is Anagram or Not..");
 
 		utility.anagramDetect(string1, string2);
 

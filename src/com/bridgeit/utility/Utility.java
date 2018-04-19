@@ -22,6 +22,17 @@ public class Utility {
 	   return input;
 	}
 	
+
+	/**
+	 * Function to take user input string.
+	 * @return string input
+	 */
+	public String inputString1()
+	{
+       String input = scan.nextLine(); 
+	   return input;
+	}
+	
 	/**
 	 * Function to take user input integer.
 	 * @return integer input
@@ -637,14 +648,14 @@ public void anagramDetect(String string1,String string2)
 	
 	
 	String string11 = string1.replaceAll("\\s", "");
-	System.out.println(string11);
-	String string22 = string2.replaceAll("\\s", "");
-	System.out.println(string22);
-	//string1=string11.toLowerCase();
-	//string2=string22.toLowerCase();
 	
-	//int string1Len=string1.length();
-	//int string2Len=string2.length();
+	String string22 = string2.replaceAll("\\s", "");
+	
+	
+	string1=string11.toLowerCase();
+	string2=string22.toLowerCase();
+	
+	
 	
 	if(string11.length()!=string22.length())
 	{
