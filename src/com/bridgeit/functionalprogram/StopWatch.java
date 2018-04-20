@@ -17,7 +17,7 @@ public class StopWatch {
 
 		Utility utility = new Utility();
 		
-		System.out.println("Enter the stop time: ");
+		System.out.println("Enter the start time: ");
 
 		long start = utility.inputLong();
 

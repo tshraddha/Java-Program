@@ -1,42 +1,34 @@
+/**
+ * Purpose: Program that takes two double command-line arguments t and v and prints the wind chill..
+ * 
+ * @author Shraddha Thanekar
+ * @since  19-04-2018
+ *
+ */
 package com.bridgeit.algorithm.program;
-import java.util.Scanner;
 
 import com.bridgeit.utility.Utility;
-/*
- * JAVA STYLE GUIDE - PACKAGE NAMING STYLE
- */
 
 public class BinarySearchWord {
-	/*
-	 * JAVA STYLE GUIDE - CLASS STATIC VARIABLE DECLARATION STYLE.
-	 */
-
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		Utility utility = new Utility();
-		// Object of utility.
-		
-		
-		System.out.println("Enter a string:");
-		
-		String s=utility.inputString();
-		
-		String c=utility.convert(s);
-		
-		System.out.println("Enter the search word in the string:");
-		
-		//char search=utility.searchWord(char[] c);
-		
-		//String r=utility.binarySearch(ch, c1)
-		
-		
-		
-		
-		
-		
-		
+
+		System.out.println("Enter the number of elements:");
+
+		int number = utility.inputInteger();
+
+		System.out.println("Enter the element in array: ");
+
+		String array[] = utility.Array1(number);
+
+		System.out.println("Enter the key:");
+
+		String key = utility.inputString();
+
+		utility.binarySearch(array, key);
+
 	}
 
 }

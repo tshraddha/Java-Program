@@ -18,11 +18,11 @@ public class SumOfThreeInt {
 
 		System.out.println("Enter the number of values to be entered in an array:");
 
-		int noOfUserValue = utility.inputInteger();
+		int number = utility.inputInteger();
 
 		System.out.println("Enter the values in an array:");
 
-		int array[] = utility.Array1(noOfUserValue);
+		int array[] = utility.Array1(number);
 
 		System.out.println("Check whether the sum of three integer adds to zero or not...");
 

@@ -19,8 +19,9 @@ public class PrimeNumberAnagramPalindrome {
 		
 		int PrimeNumber[]=utility.primeNumber();
 		
-		utility.primeNumAnagram(PrimeNumber[]);
+		//utility.primeNumAnagram(PrimeNumber);
 		
+		utility.palindrome(PrimeNumber);
 
 	}
 

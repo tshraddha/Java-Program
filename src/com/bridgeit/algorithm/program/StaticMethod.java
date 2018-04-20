@@ -14,6 +14,16 @@ public class StaticMethod {
 	public static void main(String[] args) {
 		
 			Utility utility = new Utility();
+			
+			System.out.println("Enter number of element in array:");
+			
+			int number=utility.inputInteger();
+			
+			String array[]=utility.Array1(number);
+			
+			System.out.println("Enter the key:");
+			
+			String key=utility.inputString();
 
 			System.out.println("Enter your Choice:");
 			int choice=utility.inputInteger();
@@ -21,27 +31,27 @@ public class StaticMethod {
 			switch (choice) {
 			
 			case 1:System.out.println("Binary Search method for Integer");
-			       utility.binarySearchInt();
+			       utility.binarySearch(array,key);
 			       break;
 				
 			case 2:System.out.println("Binary Search method for String");
-		           utility.binarySearchString();
+		           utility.binarySearch(array,key);
 		           break;
 		       
 			case 3:System.out.println("Insertion Sort method for integer");
-	               utility.insertionSortInt();
+	               utility.insertionSort();
 	               break;
 	    
 			case 4:System.out.println("Insertion Sort method for string");
-	               utility.insertionSortString();
+	               utility.insertionSort();
 	               break;
 			
 			case 5:System.out.println("Bubble Sort method for Integer");
-	               utility.bubbleSortInt();
+	               utility.bubbleSort(array);
 	               break;
 		
 			case 6:System.out.println("Bubble Sort method for String");
-	               utility.bubbleSortString();
+	               utility.bubbleSort(array);
 	               break;
 
 			
