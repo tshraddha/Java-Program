@@ -14,18 +14,21 @@ public class MergeSort {
 
 		Utility utility = new Utility();
 		
-		System.out.println("Enter number of element in first array:");
+		System.out.println("Enter number of element is array:");
 		
-		int n1=utility.inputInteger();
+		int number=utility.inputInteger();
 		
-		System.out.println("Enter number of elememt in second half array:");
+		System.out.println("Enter elements in array:");
 		
-		int n2=utility.inputInteger();
+		int array[]=utility.Array1(number);
 		
-		System.out.println("Merged array is:");
+		utility.sort(array,0,array.length-1);
 		
-		utility.merge(n1,n2);
+		 System.out.println("The merged sorted array is:");
+		
+          utility.mergedArray(array);
 
 	}
 
+	
 }

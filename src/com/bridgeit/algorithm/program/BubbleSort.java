@@ -21,7 +21,7 @@ public class BubbleSort {
 
 		System.out.println("Enter the element in array: ");
 
-		String array[] = utility.Array1(number);
+		String array[] = utility.array1(number);
 
 		utility.bubbleSort(array);
 

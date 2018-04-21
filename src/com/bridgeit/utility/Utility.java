@@ -396,16 +396,15 @@ public class Utility {
 
 	/**
 	 * 
-	 * @param number:Determines
-	 *            the number of user input.
+	 * @param number:Determines the number of user input.
 	 * 
 	 * @return the user input elements feed in array.
 	 */
-	public String[] Array1(int number) {
-		String array1[]= new String[number];
+	public int[] Array1(int number) {
+		int array1[]= new int[number];
 		int i;
 		for (i = 0; i < number; i++) {
-			array1[i] = scan.next();
+			array1[i] = scan.nextInt();
 
 		}
 		return array1;
@@ -616,11 +615,11 @@ public class Utility {
 	/**
 	 * Function to find the Prime Number.
 	 */
-	public int[] primeNumber() {
+	public int[] primeNumber(int size) {
 
 		int i, num, numOfPrime = 0, k = 0;
 
-		int[] primeNumArray1 = new int[100];
+		int[] primeNumArray1 = new int[size];
 
 		for (num = 2; num <= 100; num++) {
 			int count = 0;
@@ -635,16 +634,13 @@ public class Utility {
 			}
 			if (count == 2) {
 				numOfPrime++;
-
-				// System.out.println(""+num);
-
-				primeNumArray1[k] = num;
-
-				k++;
+           primeNumArray1[k] = num;
+                k++;
 			}
 		}
 
-		for (i = 0; i < numOfPrime; i++) {
+		for (i = 0; i < numOfPrime; i++) 
+		{
 			System.out.println(primeNumArray1[i]);
 		}
 		return primeNumArray1;
@@ -672,7 +668,7 @@ public class Utility {
 
 		int i, r, temp, k = 0, count = 0, sum = 0;
 
-		int temp1[] = new int[30];
+		int temp1[] = new int[];
 
 		for (i = 1; i < primeNumber.length - 1; i++) {
 			sum = 0;
@@ -703,23 +699,35 @@ public class Utility {
 	}
 
 	// 4)Static Function
+	
+	
+	public String[] array1(int number) {
+		String array[] = new String[number];
+		int i;
+		for (i = 0; i < number; i++) {
+			array[i] = inputString();
+		}
+		return array;
+	}
 
-	public <T extends Comparable<T>> long binarySearch(T[] array, T key) {
+	
+	public <T extends Comparable<T>> boolean binarySearch(T[] array1,T key) {
+		
 		long startTime = System.nanoTime();
-		int first = 0;
-		int end = array.length;
-		while (first < end) {
-			int middle = (first + end) / 2;
+		int first=0;
+		int last=array1
+		
+        if (first>=last) {
+			
+			int middle = first+(first-last) / 2;
 
-			if (array[middle].equals(key)) {
-				System.out.println("The key found at " + middle + 1 + " position");
+			 if (((array1[middle]).compareTo(key)) < 0) 
+			 {
+				 return binarySearchWord(array1, middle+1, last, key);
 			}
-
-			else if (((array[middle]).compareTo(key)) < 0) {
-				first = middle + 1;
-
-			} else {
+			 else {
 				end = middle;
+				
 			}
 
 		}
@@ -729,24 +737,41 @@ public class Utility {
 
 		System.out.println("The exectution time for binary search is:" + totalTime);
 
-		return totalTime;
+		return -1;
 
 	}
 
 	public <T extends Comparable<T>> void insertionSort(T[] array, T key) {
+		long startTime = System.nanoTime();
 		int i, j;
 		for (i = 1; i < array.length; i++) {
+			
 			key = array[i];
 
-			j = i - 1;
-			// while((i>1)&&(array[i]>key))
-			{
-				array[j + 1] = array[i];
-
+			  j = i - 1;
+			  
+			  while (j>=0 && array[j].compareTo(key)>0)   
+				 
+	            {
+	                array[j+1] = array[j];
+	                
+	                j = j-1;
+	            }
+	            array[j+1] = key;
+			  System.out.println(array);
 			}
-
+		for(i=0;i<array.length;i++)
+		{
+		System.out.println(array);
+		
+		long stopTime = System.nanoTime();
+		
+		long totalTime=stopTime-startTime;
+		System.out.println("The total time taken is:"+totalTime);
 		}
-	}
+		
+		}
+	
 
 	public <T extends Comparable<T>> long bubbleSort(T[] array) {
 
@@ -768,6 +793,57 @@ public class Utility {
 		return totalTime;
 	}
 
+	
+	//6) Binary Search the word from word list.
+	
+	public String[] wordSort(String stringArray[])
+	{
+      	Arrays.sort(stringArray);
+
+			System.out.println("The Sorted array list are as under:");
+
+			for (int i = 0; i < stringArray.length; i++) 
+			{
+				System.out.println("" + stringArray[i]);
+			}
+			return stringArray;
+	}
+	
+
+
+
+
+	public int binarySearchWord(String[] stringArray1, int start, int end, String key)
+	{
+		     String array1[]=wordSort(stringArray1);
+		      if(end>=start) 
+		      {
+			int middle = start+(end-start)/ 2;
+
+			if ((array1[middle]).compareTo(key)>0)
+			 {
+				 return binarySearchWord(stringArray1,start,middle-1,key);
+				 
+			} 
+			 else if (((stringArray1[middle]).compareTo(key))<0)
+			{
+				return binarySearchWord(stringArray1, middle+1, end, key);
+				
+			}
+			 else
+			 {
+				 return middle;
+			 }
+				 
+              
+		}
+		return -1 ;
+		
+}	
+		
+	
+	
+	
 	// 9) Merge Sort
 
 	/**
@@ -823,7 +899,91 @@ public class Utility {
 		}
 
 	}
+	
+	
+	// 9) Merge Sort
+	
+	
+	public void merge(int array[],int left,int middle,int right)
+	{
+		
+		int i,j;
+		
+		int n1=middle-left+1;
+		int n2=right-middle;
+		
+		int leftArray[]=new int[n1];
+		int rightArray[]=new int[n2];
+		
+		for(i=0;i<n1;++i)
+		{
+			leftArray[i]=array[left+i];
+			
+		}
+		for(j=0;j<n2;++j)
+		{
+			rightArray[j]=array[middle+1+j];
+			
+		}
+		
+		i=0;
+		j=0;
+		
+		int k=left;
+		
+		while((i<n1) && (j<n2))
+		{
+			if (leftArray[i]<=rightArray[j])
+			{
+				array[k]=leftArray[i];
+				i++;
+			}
+			else
+			{
+				array[k]=rightArray[j];
+				j++;
+			}
+			k++;
+		}
+		
+		while(i<n1)
+		{
+			array[k]=leftArray[i];
+			i++;
+			k++;
+		}
+		while(i<n2)
+		{
+			array[k]=rightArray[j];
+			j++;
+			k++;
+		}
+				
+	}
+	
+	public void sort(int array[],int left,int right)
+	{
+		if(left<right)
+		{
+			int middle=(left+right)/2;
+			
+			sort(array,left,middle);
+			
+			sort(array,middle+1,right);
+			
+		   merge(array, left, middle, right);
+		}
+	}
 
+	public void mergedArray(int array[])
+	{
+		for(int i=0;i<array.length-1;i++)
+		{
+			System.out.println(array[i]);
+		}
+	}
+	
+	
 	// 10) Vending Machine.
 
 	/**
@@ -1060,5 +1220,9 @@ public class Utility {
 		System.out.println(sum);
 
 	}
+
+
+
+	
 
 }

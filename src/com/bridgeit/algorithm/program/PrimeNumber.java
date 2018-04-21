@@ -14,10 +14,12 @@ public class PrimeNumber {
 	public static void main(String[] args) {
 
 		Utility utility = new Utility();
+		
+		int size=utility.inputInteger();
 
-		System.out.println("The Prime Numbers from 1 to 100 are: ");
+		System.out.println("The Prime Numbers from 1 to "+ size + " are: ");
 
-		int[] primeNumber=utility.primeNumber();
+		int[] primeNumber=utility.primeNumber(size);
 
 	}
 }

@@ -15,6 +15,10 @@ public class PrimeNumberAnagramPalindrome {
 
 		Utility utility = new Utility();
 		
+		System.out.println("Enter n,th number: ");
+		
+		int size=utility.inputInteger();
+		
 		System.out.println("The prime number from 1 to 100 are:");
 		
 		int PrimeNumber[]=utility.primeNumber();
