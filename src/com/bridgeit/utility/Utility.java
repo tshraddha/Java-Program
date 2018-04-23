@@ -447,8 +447,8 @@ public class Utility {
 	 * 
 	 * Function to calculate Euclidean distance from the point (x, y).
 	 * 
-	 * @param x1
-	 * @param y1
+	 * @param x1:X value
+	 * @param y1:Y value
 	 */
 	public void Distance(double x1, double y1) {
 		double x = Math.pow(x1, 2);
@@ -460,6 +460,11 @@ public class Utility {
 
 	// 12) Program to find permutation of a String.
 
+	/**
+	 * @param string:User input string to find permutation of.
+	 * @param starIndex:starting index.
+	 * @param endIndex:ending index.
+	 */
 	public void permute(String string, int starIndex, int endIndex) {
 		if (starIndex == endIndex) {
 			System.out.println(string);
@@ -521,9 +526,9 @@ public class Utility {
 	/**
 	 * Function to calculate roots of Quadratic Equation.
 	 * 
-	 * @param a
-	 * @param b
-	 * @param c
+	 * @param a:User input value of a.
+	 * @param b:User input value of b.
+	 * @param c:User input value of c
 	 */
 	public void quadraticEqu(double a, double b, double c) {
 		double delta = (b * b) - (4 * a * c);
@@ -566,7 +571,7 @@ public class Utility {
 
 	}
 
-	// Algorithm Programs//
+	                           // Algorithm Programs//
 
 	// 1) Anagram Detection.
 
@@ -579,7 +584,7 @@ public class Utility {
 	 *            the second string from user.
 	 * @return
 	 */
-	public String anagramDetect(String string1, String string2)
+	public void anagramDetect(String string1, String string2)
 
 	{
 
@@ -602,12 +607,12 @@ public class Utility {
 
 			boolean result = Arrays.equals(Char1, Char2);
 			if (result == true) {
-				System.out.println(" Anagram.");
+				System.out.printf(" Anagram.");
 			} else {
 				System.out.println("Not Anagram.");
 			}
 		}
-		return "anagram";
+		
 	}
 
 	// 2) Prime Number.
@@ -638,37 +643,76 @@ public class Utility {
                 k++;
 			}
 		}
-
+     int []primeArray=new int[numOfPrime];
 		for (i = 0; i < numOfPrime; i++) 
 		{
+			primeArray[i]=primeNumArray1[i];
 			System.out.println(primeNumArray1[i]);
 		}
-		return primeNumArray1;
+		return primeArray;
 	}
 
+	/**
+	 * Function to find the anagram of prime number.
+	 * 
+	 * @param p1
+	 * @param p2
+	 */
+	public void primeAnagram(String p1,String p2)
+	{
+		if (p1.length() != p2.length())
+		{
+
+		} 
+		else {
+
+			char[] ch1 = p1.toCharArray();
+			char[] ch2 = p2.toCharArray();
+
+			Arrays.sort(ch1);
+			Arrays.sort(ch2);
+			
+			String s1=new String(ch1);
+			String s2=new String(ch2);
+			
+			if(s1.equals(s2))
+			{
+				System.out.println("Anagram"+s1);
+			}
+		}
+			
+}
+	
+	
 	// Program to find 1 to 100 prime number that are anagram and palindrome.
 
+	/**
+	 * Function to check anagram of prime number.
+	 * 
+	 * @param primeNumber:Prime Number Array
+	 */
 	public void primeNumAnagram(int[] primeNumber) {
 
 		String string1 = "";
 		String string2 = "";
 
 		int i, j;
-		for (i = 0; i < primeNumber.length; i++) {
+		for (i = 0; i < primeNumber.length-1; i++) {
 			for (j = i + 1; j < primeNumber.length; j++) {
 				string1 = "" + primeNumber[i];
 				string2 = "" + primeNumber[j];
-				String s = anagramDetect(string1, string2);
-				System.out.println(s);
+			primeAnagram(string1, string2);
+				
 			}
 		}
+		
 	}
 
 	public void palindrome(int[] primeNumber) {
 
 		int i, r, temp, k = 0, count = 0, sum = 0;
 
-		int temp1[] = new int[];
+		int temp1[] = new int[primeNumber.length];
 
 		for (i = 1; i < primeNumber.length - 1; i++) {
 			sum = 0;
@@ -701,36 +745,68 @@ public class Utility {
 	// 4)Static Function
 	
 	
-	public String[] array1(int number) {
-		String array[] = new String[number];
+	/**
+	 * @param size:Determines the size of array
+	 * @return:Returns the string elements in array.
+	 */
+	public String[] arrayString(int size) {
+		String array[] = new String[size];
+		int i;
+		for (i = 0; i < size; i++) {
+			array[i] = inputString();
+		}
+		return array;
+	}
+	
+	/**
+	 * @param number:Determines the size of array.
+	 * 
+	 * @return :Returns the integer elements in array.
+	 */
+	public Integer[] arrayInt(int number) {
+		Integer array[] = new Integer[number];
 		int i;
 		for (i = 0; i < number; i++) {
-			array[i] = inputString();
+			array[i] = inputInteger();
 		}
 		return array;
 	}
 
 	
-	public <T extends Comparable<T>> boolean binarySearch(T[] array1,T key) {
+	/**
+	 * Generic Function to find the binary search.
+	 * @param array1:Contains elements in array.
+	 * @param first:States the starting point.
+	 * @param last:States the ending point.
+	 * @param key:Has the key to be found.
+	 * @return:Returns the value.
+	 */
+	public <T extends Comparable<T>> int binarySearch(T[] array1,int first,int last,T key) {
 		
+	  
 		long startTime = System.nanoTime();
-		int first=0;
-		int last=array1
+      
 		
-        if (first>=last) {
+        if (first<=last) {
 			
-			int middle = first+(first-last) / 2;
+			int middle = first+(last-first) / 2;
 
 			 if (((array1[middle]).compareTo(key)) < 0) 
 			 {
-				 return binarySearchWord(array1, middle+1, last, key);
+				 return binarySearch(array1,middle+1,last,key);
 			}
-			 else {
-				end = middle;
+			 else if  (((array1[middle]).compareTo(key)) > 0) {
+				 
+				return binarySearch(array1,first,middle-1,key);
 				
 			}
-
+			 else
+			 {
+				 return middle;
+			 }
+			 
 		}
+        
 		long endTime = System.nanoTime();
 
 		long totalTime = endTime - startTime;
@@ -741,6 +817,13 @@ public class Utility {
 
 	}
 
+	
+
+	/**
+	 * Generic Function to find insertion sort.
+	 * @param array:Contains element in array.
+	 * @param key:Has key to be found.
+	 */
 	public <T extends Comparable<T>> void insertionSort(T[] array, T key) {
 		long startTime = System.nanoTime();
 		int i, j;
@@ -758,21 +841,27 @@ public class Utility {
 	                j = j-1;
 	            }
 	            array[j+1] = key;
-			  System.out.println(array);
+			 
 			}
 		for(i=0;i<array.length;i++)
 		{
-		System.out.println(array);
-		
+		System.out.println(array[i]);
+		}
 		long stopTime = System.nanoTime();
 		
 		long totalTime=stopTime-startTime;
+		
 		System.out.println("The total time taken is:"+totalTime);
 		}
 		
-		}
+		
 	
 
+	/**
+	 * Generic Function to find the bubble sort.
+	 * @param array:Contains the element in array.
+	 * @return:Returns the sorted array.
+	 */
 	public <T extends Comparable<T>> long bubbleSort(T[] array) {
 
 		long startTime = System.nanoTime();
@@ -794,25 +883,55 @@ public class Utility {
 	}
 
 	
-	//6) Binary Search the word from word list.
 	
-	public String[] wordSort(String stringArray[])
+	
+	public Integer[] sortInt(Integer array[])
 	{
-      	Arrays.sort(stringArray);
+      	Arrays.sort(array);
 
 			System.out.println("The Sorted array list are as under:");
 
-			for (int i = 0; i < stringArray.length; i++) 
+			for (int i = 0; i < array.length; i++) 
 			{
-				System.out.println("" + stringArray[i]);
+				System.out.println("" + array[i]);
 			}
-			return stringArray;
+			return array;
+	}
+	
+	//6) Binary Search the word from word list.
+	
+	/**
+	 * Function to sort words.
+	 * 
+	 * @param array:Contains the elements in array.
+	 * @return:Returns the sorted array.
+	 */
+	public String[] wordSort(String[] array)
+	{
+      	Arrays.sort(array);
+
+			System.out.println("The Sorted array list are as under:");
+
+			for (int i = 0; i < array.length; i++) 
+			{
+				System.out.println("" + array[i]);
+			}
+			return array;
 	}
 	
 
 
 
 
+	/**
+	 * Function to binary search word from word list.
+	 * 
+	 * @param stringArray1:Contains the string elements in array.
+	 * @param start:States the starting point.
+	 * @param end:States the ending point.
+	 * @param key:Has the key to be found.
+	 * @return
+	 */
 	public int binarySearchWord(String[] stringArray1, int start, int end, String key)
 	{
 		     String array1[]=wordSort(stringArray1);
@@ -849,8 +968,8 @@ public class Utility {
 	/**
 	 * Functions to do Merge Sort of list of Strings.
 	 * 
-	 * @param n1
-	 * @param n2
+	 * @param n1:Contains half of elements.
+	 * @param n2:Contains later half of elements.
 	 */
 	public void merge(int n1, int n2) {
 		int i;
@@ -872,7 +991,7 @@ public class Utility {
 
 	// 5) Find your Number.
 
-	public <T extends Comparable<T>> boolean binarySearch1(T key) {
+	/*public <T extends Comparable<T>> boolean binarySearch1(T key) {
 
 		System.out.println("Enter number of element in array:");
 		int number = inputInteger();
@@ -898,12 +1017,18 @@ public class Utility {
 			return false;
 		}
 
-	}
+	}*/
 	
 	
 	// 9) Merge Sort
 	
 	
+	/**
+	 * @param array:Contains the elements in array.
+	 * @param left:Starting point.
+	 * @param middle:middle point.
+	 * @param right:ending point.
+	 */
 	public void merge(int array[],int left,int middle,int right)
 	{
 		
@@ -961,6 +1086,11 @@ public class Utility {
 				
 	}
 	
+	/**
+	 * @param array:Contains the elements in array.
+	 * @param left:starting point.
+	 * @param right:ending point.
+	 */
 	public void sort(int array[],int left,int right)
 	{
 		if(left<right)
@@ -989,8 +1119,7 @@ public class Utility {
 	/**
 	 * Function for Vending Machine.
 	 * 
-	 * @param amount:It
-	 *            is the amount the person need to withdraw.
+	 * @param amount:It is the amount the person need to withdraw.
 	 */
 	public void vendingMachine(int amount) {
 
@@ -1018,8 +1147,7 @@ public class Utility {
 	/**
 	 * Function to convert temperature from celsius to farenheit.
 	 * 
-	 * @param tempInCel:Takes
-	 *            temperature in celsius.
+	 * @param tempInCel:Takes temperature in celsius.
 	 * @return
 	 */
 	public void tempConvert(double tempInCel) {
@@ -1033,12 +1161,9 @@ public class Utility {
 	/**
 	 * Function to find day of week from date.
 	 * 
-	 * @param date:Takes
-	 *            date from command line.
-	 * @param month:Takes
-	 *            month from command line.
-	 * @param year:Takes
-	 *            year from command line.
+	 * @param date:Takes date from command line.
+	 * @param month:Takes month from command line.
+	 * @param year:Takes year from command line.
 	 */
 	public void dayofWeek(int date, int month, int year) {
 		int yo = (year - (14 - month)) / 12;
@@ -1058,9 +1183,9 @@ public class Utility {
 	/**
 	 * Function to calculate Monthly Payment.
 	 * 
-	 * @param principal
-	 * @param year
-	 * @param rate
+	 * @param principal:Principal amount of loan
+	 * @param year:Number of year.
+	 * @param rate:Rate of interest.
 	 */
 	public void monthPayment(double principal, double year, double rate) {
 		double r = rate / (12 * 100);

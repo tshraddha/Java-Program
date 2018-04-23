@@ -25,7 +25,7 @@ public class AnagramDetection {
 
 	System.out.println("State whether the string is Anagram or Not..");
 
-		String s=utility.anagramDetect(string1, string2);
+		utility.anagramDetect(string1, string2);
 
 	
 

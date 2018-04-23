@@ -21,7 +21,7 @@ public class PrimeNumberAnagramPalindrome {
 		
 		System.out.println("The prime number from 1 to 100 are:");
 		
-		int PrimeNumber[]=utility.primeNumber();
+		int PrimeNumber[]=utility.primeNumber(size);
 		
 		//utility.primeNumAnagram(PrimeNumber);
 		

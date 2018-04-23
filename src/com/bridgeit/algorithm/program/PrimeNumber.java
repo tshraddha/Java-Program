@@ -15,6 +15,8 @@ public class PrimeNumber {
 
 		Utility utility = new Utility();
 		
+		System.out.println("Enter the size:");
+		
 		int size=utility.inputInteger();
 
 		System.out.println("The Prime Numbers from 1 to "+ size + " are: ");
