@@ -617,8 +617,12 @@ public class Utility {
 
 	// 2) Prime Number.
 
+	
 	/**
-	 * Function to find the Prime Number.
+	 * Function to find prime numbers.
+	 * 
+	 * @param size:Determines the N'th number .
+	 * @return: Prime number
 	 */
 	public int[] primeNumber(int size) {
 
@@ -626,7 +630,8 @@ public class Utility {
 
 		int[] primeNumArray1 = new int[size];
 
-		for (num = 2; num <= 100; num++) {
+		for (num = 1; num <= 100; num++) {
+			
 			int count = 0;
 
 			for (i = 1; i <= num; i++) {
@@ -655,8 +660,8 @@ public class Utility {
 	/**
 	 * Function to find the anagram of prime number.
 	 * 
-	 * @param p1
-	 * @param p2
+	 * @param p1:String value.
+	 * @param p2:String value.
 	 */
 	public void primeAnagram(String p1,String p2)
 	{
@@ -865,8 +870,22 @@ public class Utility {
 	public <T extends Comparable<T>> long bubbleSort(T[] array) {
 
 		long startTime = System.nanoTime();
-
-		Arrays.sort(array);
+T temp;
+		//Arrays.sort(array);
+		for(int i=0;i<array.length;i++)
+		{
+			for(int j=0;j<array.length;j++)
+			{
+				if((array[i]).compareTo(array[j])<0)
+				{
+					temp=array[i];
+					array[i]=array[j];
+					array[j]=temp;
+					
+				}
+			}
+				
+		}
 
 		System.out.println("The Sorted array list are as under:");
 
@@ -908,7 +927,7 @@ public class Utility {
 	 */
 	public String[] wordSort(String[] array)
 	{
-      	Arrays.sort(array);
+      	     Arrays.sort(array);
 
 			System.out.println("The Sorted array list are as under:");
 
@@ -991,37 +1010,58 @@ public class Utility {
 
 	// 5) Find your Number.
 
-	/*public <T extends Comparable<T>> boolean binarySearch1(T key) {
-
-		System.out.println("Enter number of element in array:");
-		int number = inputInteger();
-
-		String[] array = Array1(number);
+	/**
+	 * Function to find the number.
+	 * 
+	 * @param array:Contains the rangepower to find the number.
+	 */
+	public void findNumber(double array[]) {
 
 		int first = 0;
+		
 		int end = array.length;
-		while (first < end) {
+	
+		while (first < end) 
+		{
 			int middle = (first + end) / 2;
-
-			if (array[middle].equals(key)) {
-				return true;
-			}
-
-			else if (((array[middle]).compareTo(key)) < 0) {
-				first = middle + 1;
-
-			} else {
-				end = middle;
-			}
-
-			return false;
+		
+		System.out.println("The range is between:"+first+"to"+end);	
+		
+		System.out.println("Enter true or false");
+		
+		boolean answer=inputBoolean();
+		if(answer==true)
+		{
+		first=middle+1;
+        }
+		else
+		{
+			end=middle;
 		}
-
-	}*/
+		}
+	}
 	
 	
 	// 9) Merge Sort
 	
+	/**
+	 * @param array:Contains the elements in array.
+	 * @param left:starting point.
+	 * @param right:ending point.
+	 */
+	public void sort(int array[],int left,int right)
+	{
+		if(left<right)
+		{
+			int middle=(left+right)/2;
+			
+			sort(array,left,middle);
+			
+			sort(array,middle+1,right);
+			
+		   merge(array, left, middle, right);
+		}
+	}
 	
 	/**
 	 * @param array:Contains the elements in array.
@@ -1086,28 +1126,10 @@ public class Utility {
 				
 	}
 	
-	/**
-	 * @param array:Contains the elements in array.
-	 * @param left:starting point.
-	 * @param right:ending point.
-	 */
-	public void sort(int array[],int left,int right)
-	{
-		if(left<right)
-		{
-			int middle=(left+right)/2;
-			
-			sort(array,left,middle);
-			
-			sort(array,middle+1,right);
-			
-		   merge(array, left, middle, right);
-		}
-	}
-
+	
 	public void mergedArray(int array[])
 	{
-		for(int i=0;i<array.length-1;i++)
+		for(int i=0;i<array.length;i++)
 		{
 			System.out.println(array[i]);
 		}
@@ -1152,7 +1174,8 @@ public class Utility {
 	 */
 	public void tempConvert(double tempInCel) {
 		double convrt = (tempInCel * (9 / 5) + 32);
-		System.out.println("The converted temperature from " + "celcius to farenheit is:" + convrt + "degree f");
+		System.out.println("The converted temperature from " + 
+		"celcius to farenheit is:" + convrt + "degree f");
 
 	}
 

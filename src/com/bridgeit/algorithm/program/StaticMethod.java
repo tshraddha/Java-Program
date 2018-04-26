@@ -33,7 +33,7 @@ public class StaticMethod {
 			if (result == -1) {
 				System.out.println("key not present ");
 			} else {
-				System.out.println("key present at " + result + "location");
+				System.out.println("key present at " + result+1 + " location");
 			}
 			break;
 
