@@ -588,14 +588,14 @@ public class Utility {
 
 	{
 
-		String string11 = string1.replaceAll("\\s", "");
+		string1 = string1.replaceAll("\\s", "");
 
-		String string22 = string2.replaceAll("\\s", "");
+		string2 = string2.replaceAll("\\s", "");
 
-		string1 = string11.toLowerCase();
-		string2 = string22.toLowerCase();
+		string1 = string1.toLowerCase();
+		string2 = string2.toLowerCase();
 
-		if (string11.length() != string22.length()) {
+		if (string1.length() != string2.length()) {
 
 		} else {
 
@@ -630,7 +630,7 @@ public class Utility {
 
 		int[] primeNumArray1 = new int[size];
 
-		for (num = 1; num <= 100; num++) {
+		for (num = 1; num <= size; num++) {
 			
 			int count = 0;
 
@@ -953,7 +953,8 @@ T temp;
 	 */
 	public int binarySearchWord(String[] stringArray1, int start, int end, String key)
 	{
-		     String array1[]=wordSort(stringArray1);
+		    String array1[]=wordSort(stringArray1);
+		     
 		      if(end>=start) 
 		      {
 			int middle = start+(end-start)/ 2;
@@ -1014,32 +1015,41 @@ T temp;
 	 * Function to find the number.
 	 * 
 	 * @param array:Contains the rangepower to find the number.
+	 * @return 
 	 */
-	public void findNumber(double array[]) {
-
-		int first = 0;
+	public int findNumber(int first,int end) {
 		
-		int end = array.length;
-	
-		while (first < end) 
+     int middle=0;
+    
+	    if (first <= end) 
 		{
-			int middle = (first + end) / 2;
-		
+	    	 middle = first+(end-first) / 2;
+	    	 System.out.println(middle);
 		System.out.println("The range is between:"+first+"to"+end);	
 		
 		System.out.println("Enter true or false");
 		
 		boolean answer=inputBoolean();
+		
 		if(answer==true)
 		{
-		first=middle+1;
+		return findNumber(middle+1,end);
         }
+		else if(answer==false)
+		{
+			return findNumber(first,middle-1);
+		}
 		else
 		{
-			end=middle;
+			
 		}
+		
 		}
+
+		return middle;
+	
 	}
+	
 	
 	
 	// 9) Merge Sort
@@ -1173,7 +1183,7 @@ T temp;
 	 * @return
 	 */
 	public void tempConvert(double tempInCel) {
-		double convrt = (tempInCel * (9 / 5) + 32);
+		double convrt = (tempInCel * (9.0 / 5) + 32);
 		System.out.println("The converted temperature from " + 
 		"celcius to farenheit is:" + convrt + "degree f");
 
@@ -1189,15 +1199,17 @@ T temp;
 	 * @param year:Takes year from command line.
 	 */
 	public void dayofWeek(int date, int month, int year) {
-		int yo = (year - (14 - month)) / 12;
+		int yo = year -( (14 - month) / 12);
 
-		int x = yo + (yo / 4) - (4 / 100) + (yo / 400);
+		int x = yo + (yo / 4) - (yo / 100) + (yo / 400);
 
 		int mo = month + 12 * ((14 - month) / 12) - 2;
 
-		int day = ((date + x + 31 * mo) / 12) % 7;
+		int day = (date + x + (31 * mo) / 12) % 7;
 
-		System.out.println("The day of respected date is:" + day);
+		String[] weekDay={"Sunday" ,"Monday" ,"Tuesday" ,"Wednesday", "Thrusday","Friday","Saturday","Sunday"};
+		
+		System.out.println("The day of respected date is:" + weekDay[day]);
 
 	}
 
@@ -1246,25 +1258,7 @@ T temp;
 	 *            user decimal integer.
 	 */
 
-	/*
-	 * public int[] convertBinary(int decimalNum) { int arrayBinary1[]=new
-	 * int[20]; int i=0,count=0; while(decimalNum>0) { int value=decimalNum%2;
-	 * if(value==0) { arrayBinary1[i]=0; i++; } else { arrayBinary1[i]=1; i++; }
-	 * 
-	 * count++; decimalNum=decimalNum/2;
-	 * 
-	 * }
-	 * 
-	 * int[] arrayBinary11=new int[count+1];
-	 * 
-	 * 
-	 * 
-	 * for(i=arrayBinary11.length-1;i>=0;i--) {
-	 * arrayBinary11[i]=arrayBinary1[i]; System.out.print(arrayBinary11[i]); }
-	 * return arrayBinary11; } {
-	 * 
-	 * }
-	 */
+	
 
 	/**
 	 * Function to convert decimal number to binary.
@@ -1292,28 +1286,21 @@ T temp;
 		return string1;
 	}
 
-	/*
-	 * public String convertDecimal(String binaryString) { String sum="";
-	 * 
-	 * int binaryNum = Integer.parseInt(binaryString);
-	 * System.out.println(binaryNum); for(int i=binaryNum;i<=0;i++) {
-	 * while(binaryNum!=0) { sum=sum+((binaryNum%10)*Math.pow(2, i));
-	 * System.out.println(sum); binaryNum=binaryNum/10; } }
-	 * 
-	 * 
-	 * return sum; }
-	 */
+
 
 	public void convertDecimal(String binaryString) {
+		
+
 		char[] arrayBinary = binaryString.toCharArray();
 
 		double sum = 0;
-
-		for (int i = 0; i < arrayBinary.length; i++) {
-
-			int binaryNum = Integer.parseInt(Character.toString(arrayBinary[i]));
+		 int j=0;
+		for (int i=arrayBinary.length-1; i>=0 ; i--) {
+    
+			int binaryNum = Integer.parseInt(Character.toString(arrayBinary[j]));
+		
 			sum = sum + ((binaryNum) * Math.pow(2, i));
-
+             j++;
 		}
 		System.out.println(sum);
 
@@ -1341,13 +1328,13 @@ T temp;
 		string2 = string1;
 		string1 = temp;
 		System.out.println("Strings after swapping:");
-		System.out.println(string1);
-		System.out.println(string2);
-		String stringAfterSwap = string1 + string2;
+		//System.out.println(string1);
+		//System.out.println(string2);
+		String stringAfterSwap = temp2 + temp1;
 		System.out.println(stringAfterSwap);
 
 		return stringAfterSwap;
-	}
+	}  
 
 	/**
 	 * 
@@ -1356,13 +1343,16 @@ T temp;
 	 */
 	public void convertDecimal1(String stringAfterSwap) {
 		char[] arrayBinary = stringAfterSwap.toCharArray();
-
+            //System.out.println(arrayBinary.length);
 		double sum = 0;
 
 		for (int i = 0; i < arrayBinary.length; i++) {
 
 			int binaryNum = Integer.parseInt(Character.toString(arrayBinary[i]));
+			
 			sum = sum + ((binaryNum) * Math.pow(2, i));
+			
+			//System.out.println(sum);
 
 		}
 		System.out.println(sum);

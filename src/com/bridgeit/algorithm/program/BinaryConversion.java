@@ -20,7 +20,7 @@ public class BinaryConversion {
 
 		String binaryString=utility.convertBinary(decimalNum);
 
-		//String decimalString=
+	
 		
 		utility.convertDecimal(binaryString);
 

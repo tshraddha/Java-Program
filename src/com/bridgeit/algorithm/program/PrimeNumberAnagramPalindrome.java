@@ -15,7 +15,7 @@ public class PrimeNumberAnagramPalindrome {
 
 		Utility utility = new Utility();
 
-		System.out.println("Enter n,th number: ");
+		System.out.println("Enter n'th number: ");
 
 		int size = utility.inputInteger();
 

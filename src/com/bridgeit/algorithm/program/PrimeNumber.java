@@ -21,7 +21,7 @@ public class PrimeNumber {
 
 		System.out.println("The Prime Numbers from 1 to "+ size + " are: ");
 
-		int[] primeNumber=utility.primeNumber(size);
+		utility.primeNumber(size);
 
 	}
 }

@@ -1,3 +1,10 @@
+/**
+ * Purpose: Program to implement Ordered linked list..
+ * 
+ * @author Shraddha Thanekar
+ * @since  26-04-2018
+ *
+ */
 package com.bridgeit.datastructureprogram;
 
 import java.io.BufferedReader;
@@ -27,38 +34,33 @@ public class UnOrderedList {
 
 		String[] stringArray = file.split("\\s");
 
-	     List l = new List();
+		List l = new List();
 
-		for(int i=0;i<stringArray.length;i++)
-		{
+		for (int i = 0; i < stringArray.length; i++) {
 			l.push(stringArray[i]);
-			
+
 		}
 		System.out.println("The pushed data in linked list is:");
-		
+
 		l.show();
-		
+
 		System.out.println("Enter the word to be searched:");
 
 		String searchItem = utility.inputString();
-		
-		    l.search(searchItem);
-		
-		
-		/*FileWriter fw=new FileWriter("/home/bridgeit/shraddha/LinkedListData.txt");
 
-	     BufferedWriter bw=new BufferedWriter(fw);
-	     
-	     PrintWriter pw=new PrintWriter(bw);
-	     
-	     Node node=head;
-			while(node.next!=null)
-			{
-				pw.print(node.data+" ");
-				node=node.next;
-			} 
-	     pw.print(node.data);
-	     pw.close();*/
+		l.search(searchItem);
+
+		
+		 /* FileWriter fw=new FileWriter("/home/bridgeit/shraddha/LinkedListData.txt");
+		  
+		  BufferedWriter bw=new BufferedWriter(fw);
+		 
+		 PrintWriter pw=new PrintWriter(bw);
+		 
+		  Node node=head; while(node.next!=null) { pw.print(node.data+" ");
+		  
+		  node=node.next; } pw.print(node.data); pw.close();*/
+		 
 
 	}
 

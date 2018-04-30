@@ -1,3 +1,10 @@
+/**
+ * Purpose: Program to implement Ordered linked list..
+ * 
+ * @author Shraddha Thanekar
+ * @since  25-04-2018
+ *
+ */
 package com.bridgeit.datastructureprogram;
 
 import java.io.BufferedReader;
@@ -24,38 +31,45 @@ public class OrderedList {
 
 		String[] stringArray = file.split("\\s");
 
+		List l = new List();
 
-		 List l = new List();
-		 
-		String a[]=l.Sort(stringArray);
-		
+		String a[] = l.Sort(stringArray);
+
 		System.out.println("The sorted array is:");
-	     
-     for(int i=0;i<stringArray.length;i++)
+
+		for (int i = 0; i < stringArray.length; i++)
 		{
-			System.out.println(a[i]);;
-			
+			System.out.println(a[i]);
+
 		}
-     
-		
-     for(int i=0;i<stringArray.length;i++)
+
+		for (int i = 0; i < stringArray.length; i++) 
 		{
 			l.push(a[i]);
-			
+
 		}
 		System.out.println("The pushed data in linked list is:");
-		
+
 		l.show();
-		
+
 		System.out.println("Enter the word to be searched:");
 
 		String searchItem = utility.inputString();
-		
-		    l.search(searchItem);
-		    
-		
-		    
-		
+
+		l.search(searchItem);
+
+		/*
+		 * FileWriter fw=new
+		 * FileWriter("/home/bridgeit/shraddha/LinkedListData.txt");
+		 * 
+		 * BufferedWriter bw=new BufferedWriter(fw);
+		 * 
+		 * PrintWriter pw=new PrintWriter(bw);
+		 * 
+		 * Node node=head; while(node.next!=null) { pw.print(node.data+" ");
+		 * node=node.next; } pw.print(node.data); pw.close();
+		 */
+
 	}
 
 }

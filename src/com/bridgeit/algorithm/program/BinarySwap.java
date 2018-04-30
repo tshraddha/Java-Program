@@ -20,7 +20,7 @@ public class BinarySwap {
 
 		String swappedString=utility.swap(decimalNum);
 		
-		utility.convertDecimal1(swappedString);
+		utility.convertDecimal(swappedString);
 
 	}
 

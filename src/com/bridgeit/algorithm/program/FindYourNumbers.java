@@ -9,7 +9,7 @@ package com.bridgeit.algorithm.program;
 
 import com.bridgeit.utility.Utility;
 
-public class FindYourNumber {
+public class FindYourNumbers {
 
 	public static void main(String[] args) {
 
@@ -19,18 +19,11 @@ public class FindYourNumber {
 
 		int range = utility.inputInteger();
 		
-		double rangePower=Math.pow(range, 2);
+		double rangePower=Math.pow(2, range);
 		
 		System.out.println(rangePower);
 		
-		double[] array=new double[(int) rangePower];
-		
-		for(int i=0;i<rangePower;i++)
-		{
-		array[i]=i;
-		}
-		
-		utility.findNumber(array);
+		utility.findNumber(0,(int) rangePower);
 		
 
 	}
