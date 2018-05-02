@@ -1,9 +1,13 @@
 package com.bridgeit.datastructureprogram;
 
+import java.util.NoSuchElementException;
+
 import com.bridgeit.utility.Utility;
 
 public class Queue {
 	Utility utility = new Utility();
+
+	private int length;
 	
 	static Object queueArray[];
 	static int size;
@@ -15,7 +19,7 @@ public class Queue {
 	 */
 	public Queue(int length) {
 size=length;
-front=0;
+front=-1;
 rear=-1;
 queueArray=new Object[size];
 	}
@@ -25,14 +29,15 @@ queueArray=new Object[size];
 	 */
 	public boolean empty()
 	{
-		if((rear==-1) && (front>rear))
+		/*if((rear==-1) && (front>rear))
 		{
 			return true;
 		}
 		else
 		{
 			return false;
-		}
+		}*/
+		return front==-1;
 	}
 	
 	/**
@@ -60,17 +65,63 @@ queueArray=new Object[size];
 	{
 		if((rear==-1) || (front>rear))
 		{
-			System.out.println("Queue is empty.");
+			System.out.println("");
 		}
 		else
 			
 		{
 			front++;
 		}
+		
+	
 	}
 	
-public  void transaction()
-{
+	public <T extends Comparable <T>> Object remove()
+	{
+		Object element;
+		if(empty())
+		{
+			throw new NoSuchElementException("Underflow Exception");
+		}
+		else
+		{
+			size--;
+			
+	    element=queueArray[front];
+	   
+			if(front==rear)
+			{
+				front=-1;
+				rear=-1;
+			}
+			else
+			{
+				front++;
+			}
+		}
+		return element;
+	}
+	
+	
+	public  String palindrome(String string)
+	{
+		for(int i=0;i<string.length();i++)
+		{
+			queue(string.charAt(i));
+		}
+		String reverse="";
+		
+		for(int i=0;i<string.length();i++)
+		{
+			reverse=reverse+remove();
+		}
+		System.out.println(reverse);
+		return reverse;
+	}
+
+public void transaction1(int length) {
+	for(int i=0;i<length;i++)
+	{
 	int totalBankBalance=100000;
 	
 	System.out.println("Enter 1 to deposit.");
@@ -87,7 +138,8 @@ public  void transaction()
 	
 totalBankBalance=totalBankBalance+deposit;
 System.out.println("Updated Total Bank Balance is:"+totalBankBalance);
-	
+deQueue(); 
+
  }
        else
        {
@@ -103,6 +155,13 @@ System.out.println("Updated Total Bank Balance is:"+totalBankBalance);
     		   System.out.println("Out of Balance");
     	   }
     	   System.out.println("Updated Total Bank Balance"+totalBankBalance);
+    	   deQueue(); 
        }
+
+      
+	}    
+	
 }
+
+
 }

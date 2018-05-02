@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
 
-public class List {
+public class List <T> {
 
 	static Node head;
 
@@ -15,11 +15,14 @@ public class List {
 		node.data = data;
 		node.next = null;
 
-		if (head == null) {
+		if (head == null)
+		{
 			head = node;
-		} else {
+		} else 
+		{
 			Node temp = head;
-			while (temp.next != null) {
+			while (temp.next != null)
+			{
 				temp = temp.next;
 			}
 			temp.next = node;
@@ -48,16 +51,22 @@ public class List {
 	public static <T extends Comparable<T>> void remove(int index) {
 		Node temp = null, temp1;
 
-		if (index == 0) {
+		if (index == 0) 
+		{
 			head = head.next;
-		} else {
-			for (int i = 0; i < index - 1; i++) {
+		} else 
+		{
+			temp=head;
+			temp1=null;
+			for (int i = 0; i < index - 1; i++) 
+			{
 				temp = temp.next;
 			}
-		}
+		
 		temp1 = temp.next;
 		temp.next = temp1.next;
-
+		temp1=null;
+		}
 	}
 
 	/*

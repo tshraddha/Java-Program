@@ -31,8 +31,8 @@ public class BalancedParentheses {
 
 		System.out.println("State whether the arithematic expression is Balanced or Not..");
 
-		boolean result=stack.parenthesis(array);
-	
+	boolean result=	stack.parenthesis(array);
+	//boolean result1=stack.pop();
 		if(result==true)
 		{
 			System.out.println("Balanced");

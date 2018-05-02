@@ -1359,8 +1359,47 @@ T temp;
 
 	}
 
+public int day(int month,int days,int year)
+{
+	int yo = year -( (14 - month) / 12);
 
+	int x = yo + (yo / 4) - (yo / 100) + (yo / 400);
+
+	int mo = month + 12 * ((14 - month) / 12) - 2;
+
+	int d = (days + x + (31 * mo) / 12) % 7;
+	
+	return d;
+}
+	public boolean leapYear(int year)
+	{
+		if((year%100==0) && (year%400==0) && (year%4==0))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 
 	
+	public void catalianNumber(int number)
+	{
+		int catlianNo=factorial(2*number)/(factorial(number+1)*factorial(number));
+		
+		System.out.println("The   "+catlianNo);
+	}
 
+	public int factorial(int number)
+	{
+		int fact=1;
+		
+		for(int i=1;i<=number;i++)
+		{
+			fact=fact*i;
+		}
+		
+		return fact;
+	}
 }

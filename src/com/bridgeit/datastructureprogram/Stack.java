@@ -69,18 +69,19 @@ public class Stack {
 		/**
 		 * Function to remove the data in the stack.
 		 */
-		public static <T extends Comparable <T>> void pop()
+		public static <T extends Comparable <T>> boolean pop()
 	    {
 			if(top==-1)
 			{
-				System.out.println("Stack is empty.");
+				//System.out.println("Stack is empty.");
+				return false;
 
 			}
 			else
 			{
 			top--;
 			}
-			
+			return true;
 		}	
 		
 		/**
@@ -126,7 +127,11 @@ public class Stack {
 				 if(array[i] ==')')
 				{
 					
-					pop();
+				boolean result1 =pop();
+					if(result1==false)
+					{
+                     return false;
+					}
 				}
 				 
 				}
