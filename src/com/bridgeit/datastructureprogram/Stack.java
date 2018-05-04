@@ -10,6 +10,7 @@ public class Stack {
 	private static char data;
 	
 	 /**
+	  * Function to determine the length of the stack.
 	  * 
 	 * @param length:Determines the length of the stack.
 	 */
@@ -21,13 +22,14 @@ public class Stack {
 	}
 
 	 /**
+	  * Function to determine the stack is empty or not.
 	 * @return:Determines the condition of the stack ,whether empty or not.
 	 */
 	public static boolean empty()
 	 {
 		 if(top==-1)
 		 {
-			 System.out.println("Stack is empty.");
+			// System.out.println("Stack is empty.");
 			 return true;
 		 }
 		 else

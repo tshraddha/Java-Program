@@ -38,11 +38,9 @@ public class Calendar {
 
 			for (int i = 0; i < d; i++)
 				System.out.print("   ");
-			for (int i = 1; i <= days[month]; i++) 
-			{
+			for (int i = 1; i <= days[month]; i++) {
 				System.out.printf("%2d ", i);
-				if (((i + d) % 7 == 0) || (i == days[month])) 
-				{
+				if (((i + d) % 7 == 0) || (i == days[month])) {
 					System.out.println();
 
 				}

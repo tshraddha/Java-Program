@@ -2,9 +2,12 @@ package com.bridgeit.datastructureprogram;
 
 public class StackLinkedList <T> {
 	
-	static Node head;
 	
-	public static <T extends Comparable<T>> void append(T data) {
+	 Node head;
+	 int top;
+	int size=0;
+	
+	public  <T extends Comparable<T>> void append(T data) {
 		Node node = new Node();
 		node.data = data;
 		node.next = null;
@@ -24,13 +27,22 @@ public class StackLinkedList <T> {
 
 	}
 	
+	public  <T extends Comparable<T>> void push(T data) {
+		Node node = new Node();
+		node.data = data;
+		node.next = null;
+		node.next = head;
+		head = node;
+	}
+
 	
-	public static <T extends Comparable <T>> void deleteRear()
+	public  <T extends Comparable <T>> T deleteRear()
 	{
-		
+		Node temp = head;
+		Node temp1 = null;
 		if(head==null)
 		{
-			System.out.println("Deletion not possible.");
+			//System.out.println("Deletion not possible.");
 		}
 		/*else if(head.next==null)
 		{
@@ -39,22 +51,43 @@ public class StackLinkedList <T> {
 		
 		else
 		{
-			Node temp=head;
+			//temp=head;
+			//System.out.println(head);
+		  //System.out.println(""+temp.data);
 			head=head.next;
+			 temp1=temp;
+			 System.out.println(temp1.data);
 			temp=null;
-			
+			size--;
 			
 		}
+		return (T) temp1.data;
 	}
-	
-	public static <T extends Comparable <T>> void display()
+	public boolean empty()
+	 {
+		 if(top==-1)
+		 {
+			 System.out.println("Stack is empty.");
+			 
+			 return true;
+		 }
+		 else
+		 {
+			 return false;
+		 }
+		
+	 }
+	public  <T extends Comparable <T>> void display()
 	{
 		Node node = head;
-		while (node.next != null) {
+		while (node != null) {
 			System.out.print(node.data + " ");
 			node = node.next;
 		}
-		System.out.println(node.data);
+		//System.out.println(node.data);
 	}
+
+	
+	
 	
 }

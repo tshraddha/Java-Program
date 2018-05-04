@@ -2,18 +2,16 @@
  * Purpose: Program to check whether the string is Palindrome or not...
  * 
  * @author Shraddha Thanekar
- * @since  2-05-2018
+ * @since  3-05-2018
  *
  */
 package com.bridgeit.datastructureprogram;
 
 import com.bridgeit.utility.Utility;
 
-public class CalendarQueue {
+public class CalendarStack {
 
 	public static void main(String[] args) {
-
-
 		Utility utility = new Utility();
 
 		System.out.println("Enter the month:");
@@ -26,34 +24,48 @@ public class CalendarQueue {
 
 		String months[] = { "January", "February", "March", "April", "May", "June", "July", "August", "September",
 				"October", "November", "December" };
-		
+
 		int days[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 		if (month == 2 && utility.leapYear(year))
 			days[month] = 29;
 		{
-			QueueLinkedList q = new QueueLinkedList();
-			q.enQueue("\t\t\t   " + months[month-1] + " " + year);
-			q.enQueue("\n");
-			q.enQueue("\t S \t M \t Tu  \t W \t Th  \t F  \t S");
-			q.enQueue("\n");
+			StackLinkedList s1 = new StackLinkedList();
+			
+			/*System.out.println(" " + months[month-1] + " " + year);
+			System.out.println("\n");
+			System.out.println(" S \t M \t Tu  \t W \t Th  \t F  \t S");
+			System.out.println("\n");*/
+			System.out.println("   " + months[month-1] + " " + year);
+			System.out.println(" S  M Tu  W Th  F  S");
             //q.displayList();
 			int d = utility.day(month, 1, year);
 
 			for (int i = 0; i < d; i++)
-				q.enQueue("\t");
+				s1.push(" ");
 			for (int i = 1; i <= days[month]; i++) 
 			{
-				q.enQueue("\t " +i);
+				s1.push(" " +i);
 				if (((i + d) % 7 == 0) || (i == days[month])) 
 				{
-					q.enQueue("\n");
+					s1.push(" ");
 
 				}
 
 			}
-			q.displayList();
+			StackLinkedList s2 = new StackLinkedList();
+			
+			boolean result=s1.empty();
+			while(result==false)
+			{
+				String data=(String) s1.deleteRear();
+			
+				s2.push(data);
+				
+			}
+			s2.display();
 		}
+
 	}
 
 }

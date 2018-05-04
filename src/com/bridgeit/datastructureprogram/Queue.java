@@ -23,7 +23,27 @@ front=-1;
 rear=-1;
 queueArray=new Object[size];
 	}
-
+public Queue()
+{
+	
+}
+	
+	public <T extends Comparable <T>> char frontRemove()
+	{
+		char data;
+		 data=(char) queueArray[front];
+		 front++;
+		 return data;
+		
+	}
+	public <T extends Comparable <T>> char rearRemove()
+	{
+		char data1;
+		 data1=(char) queueArray[rear];
+		 
+		 return data1;
+		
+	}
 	/**
 	 * @return:States whether the queue if empty or not.
 	 */
@@ -39,7 +59,12 @@ queueArray=new Object[size];
 		}*/
 		return front==-1;
 	}
-	
+	public static <T extends Comparable<T>> void show() {
+		for(int i=0;i<=rear-1;i++)
+		{
+			System.out.println(queueArray[i]);
+		}
+	}
 	/**
 	 * @param data:To insert the data in the queue
 	 */

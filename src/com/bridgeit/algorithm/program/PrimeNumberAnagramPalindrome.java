@@ -23,7 +23,7 @@ public class PrimeNumberAnagramPalindrome {
 
 		int PrimeNumber[] = utility.primeNumber(size);
 
-		utility.primeNumAnagram(PrimeNumber);
+		//utility.primeNumAnagram(PrimeNumber);
 
 		utility.palindrome(PrimeNumber);
 

@@ -23,22 +23,18 @@ public class BalancedParentheses {
 
 		char[] array = expression.toCharArray();
 
-		for (int i = 0; i < array.length; i++)
-		{
+		for (int i = 0; i < array.length; i++) {
 			System.out.println(array[i]);
 		}
 		Stack stack = new Stack(length);
 
 		System.out.println("State whether the arithematic expression is Balanced or Not..");
 
-	boolean result=	stack.parenthesis(array);
-	//boolean result1=stack.pop();
-		if(result==true)
-		{
+		boolean result = stack.parenthesis(array);
+		// boolean result1=stack.pop();
+		if (result == true) {
 			System.out.println("Balanced");
-		}
-		else
-		{
+		} else {
 			System.out.println("Unbalanced");
 		}
 

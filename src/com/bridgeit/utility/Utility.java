@@ -696,20 +696,38 @@ public class Utility {
 	 * 
 	 * @param primeNumber:Prime Number Array
 	 */
-	public void primeNumAnagram(int[] primeNumber) {
-
+	public static boolean primeNumAnagram(int[] primeNumber) {
+		System.out.println("abc");
+		//String anagram[]=new String[primeNumber.length];
+		boolean result=false;
+		int x=0;
 		String string1 = "";
 		String string2 = "";
 
 		int i, j;
 		for (i = 0; i < primeNumber.length-1; i++) {
+			System.out.println(i+"this is i");
 			for (j = i + 1; j < primeNumber.length; j++) {
+				System.out.println(j+"thcj");
 				string1 = "" + primeNumber[i];
+				System.out.println(string1+"kiiji");
 				string2 = "" + primeNumber[j];
-			primeAnagram(string1, string2);
-				
+			   result= primeAnagram1(string1, string2);
+			 /* System.out.println(s);
+				//System.out.println(r);
+			  anagram[x]=s;
+			   x++;
 			}
 		}
+		for(int k=0;k<primeNumber.length-1;i++)
+		{
+			System.out.println(anagram[k]);
+		}*/
+		
+			}
+		}
+		return result;
+			
 		
 	}
 
@@ -1402,4 +1420,352 @@ public int day(int month,int days,int year)
 		
 		return fact;
 	}
+	
+	
+	
+		 /**
+		  * Function to check whether the number is prime or not.
+		  * 
+		 * @param number:Takes the n'th term from user.
+		 * @return: boolean value.
+		 */
+		public boolean prime(int number) 
+	    {
+	        int c = 0;
+	        for(int i = 1; i<=number; i++)
+	        {
+	            if(number%i == 0)
+	                c++;
+	        }
+	        if(c == 2)
+	            return true;
+	        else
+	            return false;
+	    }
+
+	/**
+	 * Function to print the prime number in 2 d array.
+	 * 
+	 * @param row:Takes the number of rows.
+	 * @param col:Takes the number of column.
+	 * @return
+	 */
+	public int[][] prime2d(int row, int col) {
+
+		 int array[][]=new int[row][col];
+	      int[][] prime=new int[row][col];
+	      
+			int c=0;
+			for(int i=0;i<row;i++)
+			{
+				for(int j=0;j<col;j++)
+				{	
+	             array[i][j]=c;
+	             c++;
+				}
+			}
+			
+			for(int i=0;i<row;i++)
+			{
+				for(int j=0;j<col;j++)
+				{
+					if(prime(array[i][j]))
+					{	
+	             prime[i][j]= array[i][j];
+					}
+					else
+					{
+						prime[i][j]=0;
+					}
+
+				}
+			}
+
+			for( int i=0;i<row;i++)
+			{
+				for(int j=0;j<col;j++)
+				{
+					if(prime[i][j]!=0){
+
+					System.out.print(prime[i][j]+" ");
+					}
+				}
+
+				System.out.println();
+			}
+
+		return prime;
+	}
+
+	public static boolean primeAnagram1(String p1,String p2)
+	{
+		//String[] anagramArray=new String[100];
+		boolean flag=false;
+		int x=0;
+	
+		if (p1.length() != p2.length())
+		{
+        flag=false;
+		} 
+		else {
+
+			char[] ch1 = p1.toCharArray();
+			char[] ch2 = p2.toCharArray();
+
+			Arrays.sort(ch1);
+			Arrays.sort(ch2);
+			
+			String s1=new String(ch1);
+			String s2=new String(ch2);
+			
+			if(s1.equals(s2))
+			{
+			flag=true;
+				
+				//return s1;
+				//System.out.println("Anagram"+s1);
+				//anagramArray[x]=s1;
+				//x++;
+			}
+			else
+			{
+				flag= false;
+			}
+			
+		}
+		
+		return flag;
+			
 }
+	
+/*	public static  primeNumNonAnagram(int[] primeNumber) {
+		boolean nonAnagram=new String[100];
+		
+		String string1 = "";
+		String string2 = "";
+
+		int i, j;
+		for (i = 0; i < primeNumber.length-1; i++) {
+			for (j = i + 1; j < primeNumber.length; j++) {
+				string1 = "" + primeNumber[i];
+				string2 = "" + primeNumber[j];
+				nonAnagram=primeNonAnagram1(string1, string2);
+				//System.out.println(r);
+			}
+		}
+	return nonAnagram;
+		
+	}*/
+	/*public static boolean primeNonAnagram1(String p1,String p2)
+	{
+		boolean flag=false;
+		int x=0;
+	
+		if (p1.length() != p2.length())
+		{
+
+		} 
+		else {
+
+			char[] ch1 = p1.toCharArray();
+			char[] ch2 = p2.toCharArray();
+
+			Arrays.sort(ch1);
+			Arrays.sort(ch2);
+			
+			String s1=new String(ch1);
+			String s2=new String(ch2);
+			
+			if(s1.equals(s2))
+			{
+		flag=false;
+				
+			}
+			else
+			{
+				flag= true;
+			}
+			
+		}
+		return flag;
+			
+}*/
+
+
+public static int[] primeAnagram2D(int [] primeArray)
+	{
+	boolean result=false;
+		//int count=0;
+		int[] anagram=new int[primeArray.length];
+		int x=0,y=0;
+		String string1 = "";
+		String string2 = "";
+
+		int i, j;
+		for (i = 0; i < primeArray.length-1; i++)
+		{
+			
+			for (j = i + 1; j < primeArray.length; j++)
+			{
+				
+				string1 = "" + primeArray[i];
+				
+				string2 = "" + primeArray[j];
+				
+			   result= primeAnagram1(string1, string2);
+			  
+			   if(result==true)
+			   {
+				   anagram[x++]=primeArray[i];
+				   anagram[x]=primeArray[j];
+                   x++;
+                   //count++;
+                        
+			   }
+			  
+		  
+			}
+			}
+	   
+		/* int []anagram1=new int[count];
+			for (i = 0; i < count; i++) 
+			{
+				anagram1[i]=anagram[i];
+				//System.out.println(primeNumArray1[i]);
+			}*/
+		System.out.println("The Anagram Numbers are:");
+			for (i = 0; i < anagram.length; i++) 
+			{
+				//anagram1[i]=anagram[i];
+				System.out.println(anagram[i]);
+			}
+		  
+		return anagram;
+		
+}
+
+public void prime2DAnagram(int[] anagram)
+{
+	 int array[][]=new int[10][100];
+     int[][] primeAnagram=new int[10][100];
+     int x=0;
+		int c=0;
+		for(int i=0;i<10;i++)
+		{
+			for(int j=0;j<100;j++)
+			{	
+            array[i][j]=c;
+            c++;
+			}
+		}
+		
+		for(int i=0;i<10;i++)
+		{
+			//for(int j=i+1;j<100;j++)
+			//{
+				//if(anagram.length)
+				array[i][0]=anagram[x];
+				x++;
+
+			//}
+		}
+
+		for( int i=0;i<10;i++)
+		{
+			for(int j=0;j<100;j++)
+			{
+				if(array[i][j]!=0){
+
+				System.out.print(array[i][j]+" ");
+				}
+			}
+
+			System.out.println();
+		}
+
+	//return prime;
+	
+}
+/*	public static int[] primeNonAnagram2D(int [] primeArray)
+	{
+		boolean result=false;
+		int count=0;
+		
+		int[] nonAnagram=new int[100];
+		System.out.println(nonAnagram.length);
+		int x=0,y=0;
+		String string1 = "";
+		String string2 = "";
+
+		int i, j;
+		for (i = 0; i < primeArray.length-1 ; i++)
+		{
+			
+			for (j = i + 1; j < primeArray.length-1; j++)
+			{
+				
+				string1 = "" + primeArray[i];
+				
+				string2 = "" + primeArray[j];
+				
+			   result= primeNonAnagram1(string1, string2);
+			   System.out.println(result);
+			   if(result==true)
+			   {
+				   nonAnagram[x]=primeArray[i];
+				   nonAnagram[++x]=primeArray[j];
+				   //x++;
+                 count++;  
+			   }
+		  
+			}
+			}
+		 int []nonAnagram1=new int[count];
+			for (i = 0; i < count; i++) 
+			{
+				nonAnagram1[i]=nonAnagram[i];
+				//System.out.println(primeNumArray1[i]);
+			}
+		return nonAnagram1;
+	}*/
+
+	/*public void prime2DAnagram(int[] anagram, int[] nonAnagram) {
+		
+		int temp[][]=new int[anagram.length][nonAnagram.length];
+		int i,k,l;
+		
+		for( i=0;i<anagram.length-1;i++)
+		{
+			
+			 temp[i][0]=anagram[i];
+		
+	}
+		
+		for(i=0;i<nonAnagram.length-1;i++)
+		{
+			 temp[i][1]=nonAnagram[i];
+		}
+		
+	System.out.println("The final result is:");
+	
+	for(k=0;k<temp.length;k++)
+	{
+		for(l=0;l<temp[i].length;l++)
+		{
+			if(temp[k][l]!=0)
+			{
+		System.out.print(temp[k][l]);
+			}
+	}
+System.out.println();
+		
+	}
+	
+	}*/
+	
+
+	
+}
+	
+		 
+

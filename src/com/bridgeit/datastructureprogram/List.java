@@ -10,6 +10,12 @@ public class List <T> {
 
 	static Node head;
 
+	
+	/**
+	 * Function to add value at end in linked list.
+	 * 
+	 * @param data:Takes the data.
+	 */
 	public static <T extends Comparable<T>> void append(T data) {
 		Node node = new Node();
 		node.data = data;
@@ -30,6 +36,11 @@ public class List <T> {
 
 	}
 
+	/**
+	 * Function to push data at start.
+	 * 
+	 * @param data:Takes the data.
+	 */
 	public static <T extends Comparable<T>> void push(T data) {
 		Node node = new Node();
 		node.data = data;
@@ -38,16 +49,24 @@ public class List <T> {
 		head = node;
 	}
 
+	/**
+	 * Function to print data.
+	 */
 	public static <T extends Comparable<T>> void show() {
 		Node node = head;
-		while (node.next != null) {
+		while (node != null) {
 			System.out.print(node.data + " ");
 			node = node.next;
 		}
-		System.out.println(node.data);
+		//System.out.println(node.data);
 
 	}
 
+	/**
+	 * Function to remove the data in linked list.
+	 * 
+	 * @param index:Determines at which position to delete the data.
+	 */
 	public static <T extends Comparable<T>> void remove(int index) {
 		Node temp = null, temp1;
 
@@ -79,6 +98,11 @@ public class List <T> {
 	 * temp.next=node; }
 	 */
 
+	/**
+	 * Function to search a value.
+	 * 
+	 * @param searchItem:Takes the value to search from user.
+	 */
 	public <T extends Comparable<T>> void search(T searchItem) {
 		Node node = new Node();
 

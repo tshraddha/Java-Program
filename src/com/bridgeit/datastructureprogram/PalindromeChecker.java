@@ -14,7 +14,7 @@ public class PalindromeChecker {
 	public static void main(String[] args) {
 		
 		Utility utility = new Utility();
-		String reverse= " ";
+		/*String reverse= " ";
 		System.out.println("Enter the string to check palindrome:");
 		
 		String string=utility.inputString();
@@ -35,7 +35,7 @@ public class PalindromeChecker {
 		}
 		
 		System.out.println(reverse);
-       //String r=q.palindrome(string);
+
  
 		if(string.equals(reverse))
 		{
@@ -44,7 +44,7 @@ public class PalindromeChecker {
 		else
 		{
 			System.out.println("Not Palindrome");
-		}
+		}*/
 	}
 
 }

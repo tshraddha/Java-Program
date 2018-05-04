@@ -33,7 +33,7 @@ public class OrderedList {
 
 		List l = new List();
 
-		String a[] = l.Sort(stringArray);
+		Object a[] = l.Sort(stringArray);
 
 		System.out.println("The sorted array is:");
 
