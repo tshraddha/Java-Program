@@ -14,6 +14,16 @@ public class PalindromeChecker {
 	public static void main(String[] args) {
 		
 		Utility utility = new Utility();
+		
+      QueuePalindrome q = new QueuePalindrome();
+      
+		System.out.println("Enter the string:");
+		
+		String string=utility.inputString();
+		
+		q.palindromeChecker(string);
+		
+		
 		/*String reverse= " ";
 		System.out.println("Enter the string to check palindrome:");
 		

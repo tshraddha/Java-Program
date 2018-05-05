@@ -155,38 +155,37 @@ public void transaction1(int length) {
 	
     int choice=utility.inputInteger();
 
-       if(choice ==1)
+       switch (choice)
+       
+    	   
 {
-	System.out.println("Enter the deposit amount");
-	
-	int deposit=utility.inputInteger();
-	
-totalBankBalance=totalBankBalance+deposit;
-System.out.println("Updated Total Bank Balance is:"+totalBankBalance);
-deQueue(); 
+       case 1:	System.out.println("DEPOSIT");
+    	        System.out.println("Enter the deposit amount");
+	            int deposit=utility.inputInteger();
+	            totalBankBalance=totalBankBalance+deposit;
+                System.out.println("Updated Total Bank Balance is:"+totalBankBalance);
+                deQueue(); 
+                break;
 
- }
-       else
-       {
-    	   System.out.println("Enter the withdrawal amount");
-    	   int withdrawAmount=utility.inputInteger();
-    	   if(withdrawAmount<=totalBankBalance)
-    	   {
-    		totalBankBalance=totalBankBalance-withdrawAmount;  
-    		
-    	   }
-    	   else
-    	   {
-    		   System.out.println("Out of Balance");
-    	   }
-    	   System.out.println("Updated Total Bank Balance"+totalBankBalance);
-    	   deQueue(); 
-       }
-
-      
-	}    
-	
+       case 2:	System.out.println("WITHDRAW");
+    	        System.out.println("Enter the withdrawal amount");
+    	        int withdrawAmount=utility.inputInteger();
+    	        if(withdrawAmount<=totalBankBalance)
+    	        {
+    		    totalBankBalance=totalBankBalance-withdrawAmount;  
+    		    }
+    	        else
+    	        {
+    		    System.out.println("Out of Balance");
+    	        }
+    	        System.out.println("Updated Total Bank Balance"+totalBankBalance);
+    	        deQueue(); 
+    	        break;
 }
 
+
+	}
+
+	}
 
 }

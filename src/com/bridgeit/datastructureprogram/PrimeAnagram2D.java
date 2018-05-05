@@ -23,9 +23,7 @@ public class PrimeAnagram2D  {
 		
 		int anagram[]=utility.primeAnagram2D(primeArray);
 	
-		//int[] nonAnagram=utility.primeNonAnagram2D(primeArray);	
-
-       utility.prime2DAnagram(anagram);
+        utility.prime2DAnagram(anagram);
 	}
 
 }

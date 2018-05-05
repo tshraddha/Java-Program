@@ -72,6 +72,5 @@ public class QueueLinkedList <T>{
 			return false;
 		}
 
-
 	
 }
