@@ -11,8 +11,6 @@ import com.bridgeit.utility.Utility;
 
 public class BankingCashCounter {
 
-
-
 	public static void main(String[] args) {
 
 		System.out.println("Enter total number of people.");
@@ -22,12 +20,8 @@ public class BankingCashCounter {
 		int length = utility.inputInteger();
 
 		Queue q = new Queue(length);
-		
+
 		q.transaction1(length);
-		
-		}
+
+	}
 }
-	
-
-
-

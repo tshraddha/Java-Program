@@ -2,10 +2,10 @@ package com.bridgeit.datastructureprogram;
 
 import com.bridgeit.utility.Utility;
 
-public class PrimeAnagramStack {
+public class PrimeAnagramQueue {
 
 	public static void main(String[] args) {
-       Utility utility = new Utility();
+Utility utility = new Utility();
 		
 		System.out.println("Enter the n'th term:");
 		
@@ -15,18 +15,14 @@ public class PrimeAnagramStack {
 		
 		int anagram[]=utility.primeAnagram2D(primeArray);
 	
-        StackLinkedList sl=new StackLinkedList();
+        QueueLinkedList ql=new QueueLinkedList();
    
-        for(int i=0;i<168;i++)
+        for(int i=0;i<158;i++)
         {
-        	if(anagram[i]!=0)
-        	{
-        sl.push(anagram[i]);
-        	}
+        ql.enQueue(anagram[i]);
         }
         
-        sl.display();
-        
+        ql.displayList();
 
 	}
 

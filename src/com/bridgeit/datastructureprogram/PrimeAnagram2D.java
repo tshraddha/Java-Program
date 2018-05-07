@@ -23,7 +23,7 @@ public class PrimeAnagram2D  {
 		
 		int anagram[]=utility.primeAnagram2D(primeArray);
 	
-        utility.prime2DAnagram(anagram);
+        
 	}
 
 }

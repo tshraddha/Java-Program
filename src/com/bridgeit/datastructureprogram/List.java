@@ -88,17 +88,7 @@ public class List <T> {
 		}
 	}
 
-	/*
-	 * public static <T extends Comparable <T>> void inserAt( T data,Integer
-	 * index) {
-	 * 
-	 * Node node=new Node(); Node temp = null; node.data=data; node.next=null;
-	 * if(index.equals(0)) { insertStart(data); } else { temp=head; } for( int
-	 * i=0;i<index-1;i++) { temp=temp.next; } node.next=temp.next;
-	 * temp.next=node; }
-	 */
-
-	/**
+/**
 	 * Function to search a value.
 	 * 
 	 * @param searchItem:Takes the value to search from user.
@@ -144,16 +134,7 @@ public class List <T> {
 		return size;
 	}
 
-	/*
-	 * public static <T extends Comparable <T>> void sort(T data,int size) {
-	 * if(size>1) { for(int i=0;i<size;i++) { Node currentNode=head; Node
-	 * next=head.next; for(int j=0;j<size-1;j++) { Node temp=currentNode;
-	 * currentNode=next; next=temp; }
-	 * 
-	 * } } show(); }
-	 */
-
-	/**
+   /**
 	 * Generic Function to find the bubble sort.
 	 * 
 	 * @param array:Contains

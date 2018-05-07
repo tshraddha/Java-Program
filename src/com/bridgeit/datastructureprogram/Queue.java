@@ -28,6 +28,11 @@ public Queue()
 	
 }
 	
+	/**
+	 * Function to remove front data from the queue.
+	 * 
+	 * @return:returns the front removed data.
+	 */
 	public <T extends Comparable <T>> char frontRemove()
 	{
 		char data;
@@ -36,6 +41,11 @@ public Queue()
 		 return data;
 		
 	}
+	/**
+	 * Function to remove rear data from the queue.
+	 * 
+	 * @return:returns the rear remove data.
+	 */
 	public <T extends Comparable <T>> char rearRemove()
 	{
 		char data1;
@@ -59,12 +69,19 @@ public Queue()
 		}*/
 		return front==-1;
 	}
+	
+	
+	
+	/**
+	 * Function to display the data in the queue.
+	 */
 	public static <T extends Comparable<T>> void show() {
 		for(int i=0;i<=rear-1;i++)
 		{
 			System.out.println(queueArray[i]);
 		}
 	}
+	
 	/**
 	 * @param data:To insert the data in the queue
 	 */
@@ -144,11 +161,13 @@ public Queue()
 		return reverse;
 	}
 
-public void transaction1(int length) {
+static	int totalBankBalance=100000;
+
+public  void transaction1(int length) {
 	for(int i=0;i<length;i++)
 	{
-	int totalBankBalance=100000;
 	
+
 	System.out.println("Enter 1 to deposit.");
 	
 	System.out.println("Enter 2 for withdraw.");
@@ -163,7 +182,7 @@ public void transaction1(int length) {
     	        System.out.println("Enter the deposit amount");
 	            int deposit=utility.inputInteger();
 	            totalBankBalance=totalBankBalance+deposit;
-                System.out.println("Updated Total Bank Balance is:"+totalBankBalance);
+	            System.out.println("Updated Total Bank Balance is:"+totalBankBalance);
                 deQueue(); 
                 break;
 

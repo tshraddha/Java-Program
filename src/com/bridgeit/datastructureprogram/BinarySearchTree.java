@@ -20,6 +20,7 @@ public class BinarySearchTree {
 		int testCase = utility.inputInteger();
 
 		for (int i = 0; i < testCase; i++) {
+			
 			System.out.println("Enter the number:");
 
 			int number = utility.inputInteger();

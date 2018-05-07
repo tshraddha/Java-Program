@@ -18,7 +18,7 @@ public class Stack {
 		 
 		 maxSize=length;
 		 stackArray=new Object[maxSize];
-		   top = -1;
+		 top = -1;
 	}
 
 	 /**

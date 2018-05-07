@@ -869,7 +869,7 @@ public class Utility {
 	 *            the element in array.
 	 * @return:Returns the sorted array.
 	 */
-	public <T extends Comparable<T>> long bubbleSort(T[] array) {
+	public static <T extends Comparable<T>> long bubbleSort(T[] array) {
 
 		long startTime = System.nanoTime();
 		T temp;
@@ -1330,6 +1330,13 @@ public class Utility {
 
 	}
 
+	/**
+	 * Function to determine the days.
+	 * @param month:Takes the month from the user.
+	 * @param days:Takes the day from the user.
+	 * @param year:Takes the year from the user.
+	 * @return
+	 */
 	public int day(int month, int days, int year) {
 		int yo = year - ((14 - month) / 12);
 
@@ -1342,6 +1349,11 @@ public class Utility {
 		return d;
 	}
 
+	/**
+	 * @param year:Takes the year .
+	 * @return:returns the boolean value whether the year is leap year or not.
+	 * 
+	 */
 	public boolean leapYear(int year) {
 		if ((year % 100 == 0) && (year % 400 == 0) && (year % 4 == 0)) {
 			return true;
@@ -1350,6 +1362,11 @@ public class Utility {
 		}
 	}
 
+	/**
+	 * Function to find the Catalian Number.
+	 * 
+	 * @param number:Contains the number for test cases.
+	 */
 	public void catalianNumber(int number) {
 		int catlianNo = factorial(2 * number) / (factorial(number + 1) * factorial(number));
 
@@ -1452,12 +1469,8 @@ public class Utility {
 
 			if (s1.equals(s2)) {
 				flag = true;
-
-				// return s1;
-				// System.out.println("Anagram"+s1);
-				// anagramArray[x]=s1;
-				// x++;
-			} else {
+			} 
+			else {
 				flag = false;
 			}
 
@@ -1513,7 +1526,8 @@ public class Utility {
 		boolean result = false;
 
 		int[] anagram = new int[primeArray.length];
-		int x = 0, y = 0;
+		int x = 0;
+		int count=0;
 		String string1 = "";
 		String string2 = "";
 
@@ -1540,8 +1554,8 @@ public class Utility {
 		}
 
 	
-		System.out.println("The Anagram Numbers are:");
-		for (i = 0; i < 168; i++) 
+	System.out.println("The Anagram Numbers are:");
+		for (i = 0; i < 158; i++) 
 		{
 			
 			System.out.println(anagram[i]);
@@ -1560,27 +1574,30 @@ public class Utility {
 		int array[][] = new int[10][100];
 
 		
-		// Arrays.sort(anagram);
-
-		TreeSet<Integer> al = new TreeSet<Integer>();
-
-		for (int i = 0; i < anagram.length; i++) 
+		Arrays.sort(anagram);
+		
+		/*System.out.println("The sorted anagram array is:");
+		
+		for(int i=0;i<anagram.length;i++)
 		{
-			al.add(anagram[i]);
-
-		}
-		int y = 0;
-		int anagramArray[] = new int[168];
-		Iterator<Integer> it = al.iterator();
-		while (it.hasNext()) 
+		System.out.println(anagram[i]);
+		}*/
+		//System.out.println("Removed Duplicates");
+		int k=0;
+		int temp[]=new int[anagram.length];
+		for(int  i=0;i<anagram.length-1;i++)
 		{
-			it.next();
-
-			anagramArray[y++] = (int) it.next();
-
+			if(anagram[i]!=anagram[i+1])
+			{
+				temp[k++]=anagram[i];
+			}
 		}
-
-		int x = 0;
+		/*for(int  i=1;i<k-1;i++)
+		{
+		System.out.println(temp[i]);
+		}*/
+		
+        int x = 0;
 		int c = 1;
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 100; j++) {
@@ -1589,15 +1606,18 @@ public class Utility {
 			}
 		}
 
-		x = 0;
+		x = 1;
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 100; j++) {
 
-				if (array[i][j] == anagramArray[x]) {
+				if (array[i][j] == temp[x]) {
+	
 
 					x++;
 				} else {
+					
 					array[i][j] = 0;
+					
 				}
 			}
 		}
@@ -1665,5 +1685,8 @@ public class Utility {
 	 * 
 	 * }
 	 */
+	
+	
+	
 
 }
