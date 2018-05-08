@@ -45,8 +45,6 @@ public class Ordered {
 
 		}
 
-
-
 		for (j = 0; j < i; j++) {
 
 			list.add(array[j]);
@@ -55,33 +53,19 @@ public class Ordered {
 		list.show();
 		System.out.println("Enter the any value:");
 		String value = utility.inputString();
-		int flag = list.search(value);
-		
-		if (flag == 0) 
-		{
-			list.sortedAdd(value);
-		} else
-		{
-			list.remove(value, flag);
-		}
-		list.show();
+		int index = list.search(value);
 
-		/*
-		 * FileWriter fw = new
-		 * FileWriter("/home/bridgeit/shraddha/WordSearch.txt");
-		 * 
-		 * BufferedWriter bw = new BufferedWriter(fw);
-		 * 
-		 * PrintWriter pw = new PrintWriter(bw);
-		 * 
-		 * Node node = head;
-		 * 
-		 * if (head == null) { System.out.println("Empty"); } else if (head.next
-		 * == null) { pw.print(node.data + " "); } else { while (node.next !=
-		 * null) { pw.print(node.data + " ");
-		 * 
-		 * node = node.next; } } // pw.print(node.data); pw.close();
-		 */
+		if (index == 0) {
+			list.sortedAdd(value);
+		} else {
+			list.remove(value,index);
+		}
+
+		System.out.println("The final Linked List is:");
+
+		list.show();
+		
+		list.printOrdered();
 
 	}
 

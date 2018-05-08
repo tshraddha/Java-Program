@@ -1,11 +1,15 @@
 package com.bridgeit.utility;
 
+import java.io.File;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.TreeSet;
+
+import com.bridgeit.datastructureprogram.HashList.Node;
 
 public class Utility {
 
@@ -1439,7 +1443,7 @@ public class Utility {
 			for (int j = 0; j < col; j++) {
 				if (prime[i][j] != 0) {
 
-					System.out.print(prime[i][j] + " ");
+					System.out.print(String.format("%5d",prime[i][j]));
 				}
 			}
 
@@ -1628,7 +1632,7 @@ public class Utility {
 
 				if (array[i][j] != 0) {
 
-					System.out.print(array[i][j] + " ");
+					System.out.print(String.format("%5d",array[i][j] ));
 				}
 			}
 
@@ -1686,7 +1690,28 @@ public class Utility {
 	 * }
 	 */
 	
-	
+	public void write1(String str,Node[] table) {
+		try
+		{
+			PrintStream o=new PrintStream(new File(str));
+			System.setOut(o);
+			
+			for(int i=0;i<table.length;i++)
+			{
+				Node t=table[i];
+				while(t!=null)
+				{
+					System.out.print(t.data+" ");
+					t=t.next;
+				}
+				
+			}
+			
+		}catch(Exception e){
+			System.out.println("oops");
+		}
+			
+		}
 	
 
 }

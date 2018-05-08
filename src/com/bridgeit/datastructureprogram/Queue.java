@@ -160,7 +160,11 @@ public Queue()
 		System.out.println(reverse);
 		return reverse;
 	}
-
+public int size()
+{
+	return size;
+	
+}
 static	int totalBankBalance=100000;
 
 public  void transaction1(int length) {
@@ -171,6 +175,8 @@ public  void transaction1(int length) {
 	System.out.println("Enter 1 to deposit.");
 	
 	System.out.println("Enter 2 for withdraw.");
+	
+	
 	
     int choice=utility.inputInteger();
 
@@ -200,6 +206,8 @@ public  void transaction1(int length) {
     	        System.out.println("Updated Total Bank Balance"+totalBankBalance);
     	        deQueue(); 
     	        break;
+    	        
+      
 }
 
 

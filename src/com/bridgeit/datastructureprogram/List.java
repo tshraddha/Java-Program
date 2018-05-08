@@ -1,6 +1,10 @@
 
 package com.bridgeit.datastructureprogram;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.LinkedList;
 
@@ -159,4 +163,39 @@ public class List <T> {
 		return array;
 	}
 
+	
+	/**
+	 * Function to display the output in the file.
+	 * 
+	 * @throws IOException
+	 */
+	public void printUnordered() throws IOException
+	{
+		FileWriter fw = new FileWriter("/home/bridgeit/shraddha/WordSearch.txt");
+
+		BufferedWriter bw = new BufferedWriter(fw);
+
+		PrintWriter pw = new PrintWriter(bw);
+
+		Node node = head;
+		
+		if (head == null)
+		{
+			System.out.println("Empty");
+		} 
+		else if (head.next == null) 
+		{
+			pw.print(node.data + " ");
+		} 
+		else {
+			while (node != null)
+           {
+				pw.print(node.data + " ");
+
+				node = node.next;
+			}
+		}
+		// pw.print(node.data);
+		pw.close();
+	}
 }

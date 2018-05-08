@@ -1,5 +1,10 @@
 package com.bridgeit.datastructureprogram;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class LinkedList<T> {
 	public class Node<T> {
 		Node next;
@@ -77,13 +82,13 @@ public class LinkedList<T> {
 	 * @param data:Contains the data to be removed.
 	 * @param flag
 	 */
-	public <T> void remove(T data, int flag) {
+	public <T> void remove(T data, int index) {
 		Node temp = head;
 		Node temp1 = null;
-		if (flag == 1) {
+		if (index == 1) {
 			head = head.next;
 		} else {
-			for (int i = 0; i < flag - 2; i++) {
+			for (int i = 0; i < index - 2; i++) {
 				temp= temp.next;
 			}
 			temp1 = temp.next;
@@ -157,15 +162,39 @@ public class LinkedList<T> {
 		}
 
 		
-	/*	public <T> void hashFunction() 
+	
+		
+		/**
+		 * Function to display the output in the file.
+		 * @throws IOException
+		 */
+		public void printOrdered() throws IOException
 		{
+			FileWriter fw = new FileWriter("/home/bridgeit/shraddha/number.txt");
+
+			BufferedWriter bw = new BufferedWriter(fw);
+
+			PrintWriter pw = new PrintWriter(bw);
+
+			Node node = head;
 			
-			System.out.println("Enter the length:");
-			
-			int length=i
-			Node box[];
-			
-			for(int i=0;i<11)
+			if (head == null)
+			{
+				System.out.println("Empty");
+			} 
+			else if (head.next == null) 
+			{
+				pw.print(node.data + " ");
+			} 
+			else {
+				while (node != null)
+	           {
+					pw.print(node.data + " ");
+
+					node = node.next;
+				}
+			}
+			// pw.print(node.data);
+			pw.close();
 		}
-		}*/
 }

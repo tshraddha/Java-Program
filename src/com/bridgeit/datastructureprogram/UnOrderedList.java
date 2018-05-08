@@ -51,27 +51,7 @@ public class UnOrderedList {
 
 		l.search(searchItem);
 
-		FileWriter fw = new FileWriter("/home/bridgeit/shraddha/WordSearch.txt");
-
-		BufferedWriter bw = new BufferedWriter(fw);
-
-		PrintWriter pw = new PrintWriter(bw);
-
-		Node node = head;
-
-		if (head == null) {
-			System.out.println("Empty");
-		} else if (head.next == null) {
-			pw.print(node.data + " ");
-		} else {
-			while (node.next != null) {
-				pw.print(node.data + " ");
-
-				node = node.next;
-			}
-		}
-		// pw.print(node.data);
-		pw.close();
+		l.printUnordered();
 
 	}
 
