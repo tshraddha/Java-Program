@@ -23,7 +23,8 @@ public class BalancedParentheses {
 
 		char[] array = expression.toCharArray();
 
-		for (int i = 0; i < array.length; i++) {
+		for (int i = 0; i < array.length; i++)
+		{
 			System.out.println(array[i]);
 		}
 		Stack stack = new Stack(length);

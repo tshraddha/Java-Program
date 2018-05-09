@@ -25,22 +25,33 @@ public class Ordered {
 
 		FileReader read = new FileReader("/home/bridgeit/shraddha/number.txt");
 
-		@SuppressWarnings("resource")
+	
 		BufferedReader br = new BufferedReader(read);
 
 		String file = br.readLine();
-
+		
+		br.close();	
 		System.out.println(file);
+		
+		/*for (String fileString : file.split("\\s", 0))
+		{
+			int number = Integer.parseInt(fileString);
+			
+			list.add(number);
+			
+		}*/
 
+		
 		String[] stringArray = file.split("\\s");
-
-		Object[] array = list.Sort(stringArray);
-
+		
+		Object[] array = list.SortInt(stringArray);
+		
 		int i, j;
 
 		System.out.println("The sorted array is:");
 
 		for (i = 0; i < stringArray.length; i++) {
+			
 			System.out.println(array[i]);
 
 		}
@@ -49,10 +60,12 @@ public class Ordered {
 
 			list.add(array[j]);
 		}
+		
 		System.out.println("LinkedList containts:");
 		list.show();
 		System.out.println("Enter the any value:");
 		String value = utility.inputString();
+		
 		int index = list.search(value);
 
 		if (index == 0) {

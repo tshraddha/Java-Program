@@ -1371,19 +1371,24 @@ public class Utility {
 	 * 
 	 * @param number:Contains the number for test cases.
 	 */
-	public void catalianNumber(int number) {
-		int catlianNo = factorial(2 * number) / (factorial(number + 1) * factorial(number));
+	public void catalianNumber(double number) 
+	{
+		
+		double t=2*number;
+		double t1=number+1;
+		double catlianNo = factorial(t) / (factorial(t1) * factorial(number));
 
-		System.out.println("The   " + catlianNo);
+		System.out.println(" " + catlianNo);
 	}
 
-	public int factorial(int number) {
-		int fact = 1;
+	public double factorial(double number) {
+		double fact = 1;
 
-		for (int i = 1; i <= number; i++) {
+		for (int i = 1; i <= number; i++)
+		{
 			fact = fact * i;
 		}
-
+//System.out.println(fact);
 		return fact;
 	}
 
@@ -1580,13 +1585,7 @@ public class Utility {
 		
 		Arrays.sort(anagram);
 		
-		/*System.out.println("The sorted anagram array is:");
-		
-		for(int i=0;i<anagram.length;i++)
-		{
-		System.out.println(anagram[i]);
-		}*/
-		//System.out.println("Removed Duplicates");
+
 		int k=0;
 		int temp[]=new int[anagram.length];
 		for(int  i=0;i<anagram.length-1;i++)

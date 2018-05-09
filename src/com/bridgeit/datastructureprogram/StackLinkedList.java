@@ -4,7 +4,7 @@ public class StackLinkedList <T> {
 	
 	
 	 Node head;
-	 int top;
+	 Node top=null;
 	int size=0;
 	
 	public  <T extends Comparable<T>> void append(T data) {
@@ -29,12 +29,15 @@ public class StackLinkedList <T> {
 	
 	public  <T extends Comparable<T>> void push(T data) {
 		Node node = new Node();
-		node.data = data;
+        node.data = data;
 		node.next = null;
 		node.next = head;
 		head = node;
 	}
-
+public int size()
+{
+	return size;
+}
 	
 	public  <T extends Comparable <T>> T deleteRear()
 	{
@@ -65,7 +68,7 @@ public class StackLinkedList <T> {
 	}
 	public boolean empty()
 	 {
-		 if(top==-1)
+		 if(top==null)
 		 {
 			 System.out.println("Stack is empty.");
 			 
@@ -85,6 +88,40 @@ public class StackLinkedList <T> {
 			node = node.next;
 		}
 		//System.out.println(node.data);
+	}
+
+	public  <T > void display1()
+	{
+		Node temp;
+		temp=top;
+		if(top.next==null)
+		{
+			System.out.println("Empty");
+		}
+		else
+		{
+			while(temp!=null)
+			{
+				System.out.println(""+temp.data);
+				temp=temp.next;
+			}
+		}
+	}
+	public String pop() {
+	
+		Node temp = null;
+		System.out.println(top);
+		if(top==null)
+		{
+			//System.out.println("Stack is empty");
+		}
+		else
+		{
+			temp=top;
+			//System.out.println();
+			top=temp.next;
+		}
+		return (String) temp.data;
 	}
 
 	

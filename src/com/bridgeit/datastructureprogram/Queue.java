@@ -7,7 +7,7 @@ import com.bridgeit.utility.Utility;
 public class Queue {
 	Utility utility = new Utility();
 
-	private int length;
+	private static int length;
 	
 	static Object queueArray[];
 	static int size;
@@ -167,16 +167,19 @@ public int size()
 }
 static	int totalBankBalance=100000;
 
+
+static int count=0;
+
 public  void transaction1(int length) {
-	for(int i=0;i<length;i++)
+	for(int i=0;i<100;i++)
 	{
 	
-
+    count=length--;
 	System.out.println("Enter 1 to deposit.");
 	
 	System.out.println("Enter 2 for withdraw.");
 	
-	
+	System.out.println("Enter 3 for number of person in the queue.");
 	
     int choice=utility.inputInteger();
 
@@ -185,14 +188,17 @@ public  void transaction1(int length) {
     	   
 {
        case 1:	System.out.println("DEPOSIT");
+                //count--;
     	        System.out.println("Enter the deposit amount");
 	            int deposit=utility.inputInteger();
 	            totalBankBalance=totalBankBalance+deposit;
 	            System.out.println("Updated Total Bank Balance is:"+totalBankBalance);
                 deQueue(); 
+                
                 break;
 
        case 2:	System.out.println("WITHDRAW");
+                //count--;
     	        System.out.println("Enter the withdrawal amount");
     	        int withdrawAmount=utility.inputInteger();
     	        if(withdrawAmount<=totalBankBalance)
@@ -205,9 +211,13 @@ public  void transaction1(int length) {
     	        }
     	        System.out.println("Updated Total Bank Balance"+totalBankBalance);
     	        deQueue(); 
+    	        
     	        break;
     	        
-      
+       case 3: System.out.println("Number of person in the queue:"+count);
+       //transaction1();
+               break;
+       
 }
 
 

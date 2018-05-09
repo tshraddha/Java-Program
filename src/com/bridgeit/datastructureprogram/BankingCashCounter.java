@@ -19,9 +19,9 @@ public class BankingCashCounter {
 
 		int length = utility.inputInteger();
 
-		Queue q = new Queue(length);
+		Queue queue = new Queue(length);
 
-		q.transaction1(length);
+		queue.transaction1(length);
 
 	}
 }

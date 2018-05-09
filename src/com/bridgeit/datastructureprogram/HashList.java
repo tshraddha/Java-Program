@@ -188,7 +188,23 @@ public class HashList {
 			System.out.println();
 		}
 	}
-	
+public <T> void display1() {
+		
+		for(int i=0;i<table.length;i++)
+		{
+			if(i==2  || i==4)
+			{
+			System.out.print(i+ " : ");
+			Node temp=table[i];
+			while(temp!=null)
+			{
+				System.out.print(temp.data+" ");
+				temp=temp.next;
+			}
+			System.out.println();
+		}
+	}
+}
 	
 	
 	/**

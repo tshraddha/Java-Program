@@ -11,8 +11,18 @@ public class LinkedList<T> {
 		T data;
 	}
 
-	Node head;
+	 Node head;
 
+	 public<T> void push1(T data)
+	 {
+		 Node node=new Node();
+		 node.data=data;
+		 node.next=null;
+		 node.next=head;
+		 head=null;
+	 }
+	 
+	 
 	/**
 	 * Function to push data in linked list.
 	 * 
@@ -161,7 +171,26 @@ public class LinkedList<T> {
 			return array;
 		}
 
-		
+		public <T extends Comparable<T>> T[] SortInt(T[] array) {
+
+			T temp;
+			for (int i = 0; i < array.length; i++) {
+				for (int j = 0; j < array.length; j++) {
+					
+					int a=Integer.parseInt((String)array[i]);
+					int b=Integer.parseInt((String)array[j]);
+					if (a<b) {
+						temp = array[i];
+						array[i] = array[j];
+						array[j] = temp;
+
+					}
+				}
+
+			}
+
+			return array;
+		}
 	
 		
 		/**
@@ -197,4 +226,6 @@ public class LinkedList<T> {
 			// pw.print(node.data);
 			pw.close();
 		}
+		
+		
 }

@@ -34,7 +34,7 @@ public class Calendar {
 		if (month == 2 && utility.leapYear(year))
 			days[month] = 29;
 		{
-			System.out.println("   " + months[month] + " " + year);
+			System.out.println("   " + months[month-1] + " " + year);
 			System.out.println(" S  M Tu  W Th  F  S");
 
 			int d = utility.day(month, 1, year);

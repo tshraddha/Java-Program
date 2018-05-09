@@ -15,13 +15,13 @@ public class PalindromeChecker {
 
 		Utility utility = new Utility();
 
-		QueuePalindrome pq = new QueuePalindrome();
+		QueuePalindrome queue = new QueuePalindrome();
 
 		System.out.println("Enter the string:");
 		
 		String string = utility.inputString();
 		
-		pq.palindromeChecker1(string);
+		queue.palindromeChecker1(string);
 
 	}
 

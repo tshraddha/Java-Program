@@ -29,13 +29,14 @@ public class Hashing {
 		for (String fileString : file.split("\\s", 0))
 		{
 			int number = Integer.parseInt(fileString);
+			
 			list.add(number);			
 		}
 		System.out.println("Enter the number to be found: ");
 		
 		int addNumber=utility.inputInteger();		
 		list.search(addNumber);		
-		list.display();		
+		list.display1();		
 		list.write();
 	
 	

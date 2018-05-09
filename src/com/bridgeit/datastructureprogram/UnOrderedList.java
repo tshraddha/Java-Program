@@ -29,29 +29,30 @@ public class UnOrderedList {
 		BufferedReader br = new BufferedReader(read);
 
 		String file = br.readLine();
+		br.close();
 
 		System.out.println(file);
 
 		String[] stringArray = file.split("\\s");
 
-		List l = new List();
+		List list = new List();
 
 		for (int i = 0; i < stringArray.length; i++) {
 			
-			l.push(stringArray[i]);
+			list.push(stringArray[i]);
 
 		}
 		System.out.println("The pushed data in linked list is:");
 
-		l.show();
+		list.show();
 
 		System.out.println("\n\nEnter the word to be searched:");
 
 		String searchItem = utility.inputString();
 
-		l.search(searchItem);
+		list.search(searchItem);
 
-		l.printUnordered();
+		list.printUnordered();
 
 	}
 
