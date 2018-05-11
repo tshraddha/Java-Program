@@ -14,6 +14,7 @@ public class CalendarStack {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
 
+		int i;
 		System.out.println("Enter the month:");
 
 		int month = utility.inputInteger();
@@ -30,8 +31,9 @@ public class CalendarStack {
 		if (month == 2 && utility.leapYear(year))
 			days[month] = 29;
 		{
-			StackLinkedList s1 = new StackLinkedList();
-			StackLinkedList s2 = new StackLinkedList();
+			StackCalendar s1 = new StackCalendar();
+			StackCalendar s2 = new StackCalendar();
+			
 
 			System.out.println("    " + months[month - 1] + " " + year);
 
@@ -39,24 +41,37 @@ public class CalendarStack {
 
 			int d = utility.day(month, 1, year);
 
-			for (int i = 0; i < d; i++)
-
-			  	s1.append("\t");
-			for (int i = 1; i <= days[month]; i++) {
-				s1.append("\t"+i);
-				if (((i + d) % 7 == 0) || (i == days[month])) {
-				s1.append("\n");
+			for ( i = 0; i < d; i++)
+			{
+				s1.push(" ");
+			 
+			}
+			
+			for ( i = 0; i <= days[month]; i++)
+			{
+				if(i<10)
+				{
+					s1.push(" "+i);
 				}
-
+				else
+				{
+					s1.push(""+i);
+				}
 			}
 
-			//int len = s1.size();
-			for (int i = 0; i < s1.size(); i++) {
+			
+			if((i+d)%7==0 || i==days[month])
+			{
+				s1.push("\n");
+			}
+			int len = s1.size();
+			for ( i = 0; i < len; i++) {
 				String data = s1.pop();
-				s2.append(data);
+				s2.push(" ");
+				s2.push(""+data);
 			}
 
-			s2.display1();
+			s1.display();
 
 		}
 

@@ -1,29 +1,15 @@
 package com.bridgeit.designpattern.ObserverDesignPattern;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Observer;
+public interface Subject {
+	
+	//methods to register and unregister observers
+		public void register(Observer obj);
+		public void unregister(Observer obj);
+		
+		//method to notify observers of change
+		public void notifyObservers();
+		
+		//method to get updates from subject
+		public Object getUpdate(Observer obj);
 
-public class Subject {
-	 private List<Observer> observers = new ArrayList<Observer>();
-	   private int state;
-
-	   public int getState() {
-	      return state;
-	   }
-
-	   public void setState(int state) {
-	      this.state = state;
-	      notifyAllObservers();
-	   }
-
-	   public void attach(Observer observer){
-	      observers.add(observer);		
-	   }
-
-	   public void notifyAllObservers(){
-	      for (Observer observer : observers) {
-	         observer.update(null, observer);
-	      }
-	   } 	
 }

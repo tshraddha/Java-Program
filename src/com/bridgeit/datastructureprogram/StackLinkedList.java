@@ -93,8 +93,8 @@ public int size()
 	public  <T > void display1()
 	{
 		Node temp;
-		temp=top;
-		if(top.next==null)
+		temp=head;
+		if(head==null)
 		{
 			System.out.println("Empty");
 		}
@@ -120,6 +120,7 @@ public int size()
 			temp=top;
 			//System.out.println();
 			top=temp.next;
+			size--;
 		}
 		return (String) temp.data;
 	}

@@ -1,6 +1,9 @@
 package com.bridgeit.designpattern.ObserverDesignPattern;
 
-public abstract class Observer {
-	 protected Subject subject;
-	   public abstract void update();
+public interface Observer {
+	//method to update the observer, used by subject
+		public void update();
+		
+		//attach with subject to observe
+		public void setSubject(Subject sub);
 }

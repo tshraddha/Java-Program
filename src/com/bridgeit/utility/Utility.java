@@ -1,6 +1,9 @@
 package com.bridgeit.utility;
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -8,8 +11,15 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import com.bridgeit.algorithm.program.BubbleSort;
 import com.bridgeit.datastructureprogram.HashList.Node;
+import com.bridgeit.objectorientedprograms.QueueLinkedList;
 
 public class Utility {
 
@@ -44,6 +54,8 @@ public class Utility {
 		int input = scan.nextInt();
 		return input;
 	}
+	
+	
 
 	/**
 	 * Function to take user input double value.
@@ -1689,6 +1701,11 @@ public class Utility {
 	 * }
 	 */
 	
+	/**
+	 * Function to write the file.
+	 * @param str:Contains the file string
+	 * @param table:Contains the data in the node.
+	 */
 	public void write1(String str,Node[] table) {
 		try
 		{
@@ -1711,6 +1728,335 @@ public class Utility {
 		}
 			
 		}
+
+	/**
+	 * Function to manage the inventory data.
+	 * @throws IOException
+	 */
+	@SuppressWarnings("unchecked")
+	public void InventoryDataManagement() throws IOException {
+		//System.out.println("Enter your Choice...");
+		//System.out.println("Enter 1 for Rice");
+		//System.out.println("Enter 2 for pulses");
+		//System.out.println("Enter 3 for Wheat");
+		
+		//int choice=inputInteger();
+		
+		//switch(choice)
+		//{
+		//case 1:
+			 System.out.println("Enter the name of rice:");
+		   	   String riceName=inputString();
+		   	   System.out.println("Enter the price per kg:");
+		   	   int ricePrice=inputInteger();
+		   	   System.out.println("Enter how many kg.?");
+		   	   int riceKg=inputInteger();
+		   	 //  System.out.println("The total amount to pay");
+		   	   int amount=ricePrice*riceKg;
+		   	   System.out.println("Total amount: "+amount);
+		   	   System.out.println(amount);
+		   	JSONObject obj = new JSONObject();
+			obj.put("Rice Name", riceName);
+			obj.put("Rice Price", ricePrice);
+			obj.put("Rice Kg", riceKg);
+			obj.put("Total amount ", amount);
+			System.out.println(obj);
+			try (FileWriter file = new FileWriter("/home/bridgeit/shraddha/JsonExample.json")) {
+				file.write(obj.toJSONString());
+				System.out.println();
+				System.out.println("Successfully Copied JSON Object to File...");
+				System.out.println("\nJSON Object: " + obj);
+			}
+		
+		//case 2:
+			System.out.println("Enter the name of pulse:");
+	   	   String pulseName=inputString();
+	   	   System.out.println("Enter the price per kg:");
+	   	   int pulsePrice=inputInteger();
+	   	   System.out.println("Enter how many kg.?");
+	   	   int pulseKg=inputInteger();
+	   	   System.out.println("The total amount to pay");
+	   	   int amountPulse=pulsePrice*pulseKg;
+	   	   System.out.println(amountPulse);
+	   	JSONObject obj1 = new JSONObject();
+		obj1.put("Pulse Name", pulseName);
+		obj1.put("Pulse Price", pulsePrice);
+		obj1.put("Pulse Kg", pulseKg);
+		obj1.put("Total amount to pay", amountPulse);
+		System.out.println(obj1);
+		try (FileWriter file = new FileWriter("/home/bridgeit/shraddha/JsonExample.json")) {
+			file.write(obj1.toJSONString());
+			System.out.println();
+			System.out.println("Successfully Copied JSON Object to File...");
+			System.out.println("\nJSON Object: " + obj1);
+		}
+		
+		//case 3:
+			System.out.println("Enter the name of wheat:");
+	   	   String wheatName=inputString();
+	   	   System.out.println("Enter the price per kg:");
+	   	   int wheatPrice=inputInteger();
+	   	   System.out.println("Enter how many kg.?");
+	   	   int wheatKg=inputInteger();
+	   	   System.out.println("The total amount to pay");
+	   	   int amountWheat=wheatPrice*wheatKg;
+	   	   System.out.println(amountWheat);
+	   	JSONObject obj2 = new JSONObject();
+		obj2.put("Wheat Name", wheatName);
+		obj2.put("Wheat Price", wheatPrice);
+		obj2.put("Wheat Kg", wheatKg);
+		obj2.put("Total amount to pay", amountWheat);
+		System.out.println(obj2);
+		try (FileWriter file = new FileWriter("/home/bridgeit/shraddha/JsonExample.json")) {
+			file.write(obj2.toJSONString());
+			System.out.println();
+			System.out.println("Successfully Copied JSON Object to File...");
+			System.out.println("\nJSON Object: " + obj2);
+		}
+				
+}
+	
+	
+	/**
+	 * Function to validate the full name.
+	 * 
+	 * @param fullname:Takes the full name to validate the name.
+	 * @return:Return the boolean value.
+	 */
+	public boolean nameValidate(String fullname)
+	{
+		return Pattern.matches("[a-zA-Z\\s]*",fullname);
+	}
+	
+	/**
+	 * Function to validate the phone number.
+	 * 
+	 * @param number:Takes the number to validate the phone number.
+	 * @return:Returns the boolean value.
+	 */
+	public boolean numberValidate(String number)
+	{
+		return Pattern.matches("[789]{1}[0-9]{9}",number);
+	}
+	
+	
+	/**
+	 *Function to implement regular expression. 
+	 */
+	public void regularExpression() {
+		
+String string1= "Hello <<name>>, We have your full name as <<full name>> in our system.";
+String string2="your contact number is 91-xxxxxxxxxx.";
+String string3= "Please,let us know in case of any clarification Thank you BridgeLabz 01/01/2016";	
+        System.out.println("Enter the name:");
+        String name=inputString();	
+		string1 = string1.replace("<<name>>", name);
+		System.out.println("Enter full name:");
+		String fullname=inputString();
+		string1=string1.replaceAll("<<full name>>", fullname);
+		boolean result=nameValidate(fullname);
+		System.out.println("Name Validation result:"+result);
+		
+		System.out.println("Enter the number:");
+		String number=inputString();
+		string2=string2.replaceAll("xxxxxxxxxx",number);
+		boolean result1=numberValidate(number);
+		System.out.println("Number validation result:"+result1);
+		
+		System.out.println("Enter the date:");
+		String date=inputString();
+		string3=string3.replaceAll("01/01/2016",date);
+		
+		System.out.println(string1);
+		System.out.println(string2);
+		System.out.println(string3);
+		
+	}
+	
+	
+	/**
+	 *Function to initialize deck of card. 
+	 */
+	public void deckOfCards() {
+		
+String[] suit = { "Spades", "Hearts", "Diamonds", "Clubs" };
+String[] rank = { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
+		 int n = suit.length * rank.length;
+	        String[] deck = new String[n];
+		// Initialize cards
+		for (int i = 0; i < rank.length; i++) 
+		{
+			for(int j=0;j<suit.length;j++)
+			{
+		
+				 deck[suit.length*i + j] = rank[i] + " of " + suit[j];
+		}
+		}
+		// Shuffle the cards
+		for (int i = 0; i < deck.length; i++)
+		{
+			 int random = i + (int) (Math.random() * (n-i));
+
+			String temp = deck[random];
+			deck[random] = deck[i];
+			deck[i] = temp;
+		}
+
+		// Display the all the cards
+		int l=0;
+		String twoDArray[][]=new String[4][9];
+		for (int i = 0; i < 4; i++) 
+		{
+			System.out.println("Player:"+i);
+			for (int j = 0; j < 9; j++) 
+			{
+			twoDArray[i][j]=deck[l++];
+			System.out.println("\t"+twoDArray[i][j]+"\t\t");
+		}
+			System.out.println();
+	}
+}
+
+	/**
+	 * Function to initialize the deck of card in the queue.
+	 */
+	public void deckOfCardsQueue() {
+		
+String[] suit = { "Spades", "Hearts", "Diamonds", "Clubs" };
+String[] rank = { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
+				 int n = suit.length * rank.length;
+			        String[] deck = new String[n];
+				// Initialize cards
+				for (int i = 0; i < rank.length; i++) 
+				{
+					for(int j=0;j<suit.length;j++)
+					{
+				
+						 deck[suit.length*i + j] = rank[i] + " of " + suit[j];
+				}
+				}
+				// Shuffle the cards
+				for (int i = 0; i < deck.length; i++)
+				{
+					 int random = i + (int) (Math.random() * (n-i));
+
+					String temp = deck[random];
+					deck[random] = deck[i];
+					deck[i] = temp;
+				}
+
+				// Display the all the cards
+				int l=0;
+				String twoDArray[][]=new String[4][9];
+				for (int i = 0; i < 4; i++) 
+				{
+					System.out.println("Player:"+i);
+					for (int j = 0; j < 9; j++) 
+					{
+					twoDArray[i][j]=deck[l++];
+					
+					
+					System.out.println("\t"+twoDArray[i][j]+"\t\t");
+				}
+					System.out.println();
+			}
+				
+			
+				
+				
+			
+		}
+
+/*	public static void bubbleSort(String array) {
+
+		
+		T temp;
+		// Arrays.sort(array);
+		for (int i = 0; i < array.length; i++) {
+			for (int j = 0; j < array.length; j++) {
+				if ((array[i]).compareTo(array[j]) < 0) {
+					temp = array[i];
+					array[i] = array[j];
+					array[j] = temp;
+
+				}
+			}
+
+		}*/
+	
+	/**
+	 * Function to take the stock report.
+	 */
+	
+	public void stockReport() {
+   JSONParser parser = new JSONParser();
+	try {
+
+		Object obj = parser.parse(new FileReader("/home/bridgeit/shraddha/stock.json"));
+		JSONObject jsonObject = (JSONObject) obj;
+		//JSONArray list = (JSONArray) jsonObject.get("choice");
+		
+		System.out.println("Enter the choice:");
+		System.out.println("Enter 1 for abDynamics");
+		System.out.println("Enter 2 for LandT");
+		System.out.println("Enter 3 for Syntel");		
+		int choice=inputInteger();
+		
+		switch(choice)
+		{
+		case 1:System.out.println("Details of AB Dynamics");
+			   String share1=jsonObject.get("abDynamic").toString();
+			   JSONArray list1 = (JSONArray) jsonObject.get("share1");
+			   System.out.println("AB Dynamics"+share1);
+			   Iterator<String> iterator1 = list1.iterator();
+				while (iterator1.hasNext())
+				{
+					System.out.println(iterator1.next()); 
+				}
+		case 2:System.out.println("Details of L&T ");
+		   String share2=jsonObject.get("LandT").toString();
+		   JSONArray list2 = (JSONArray) jsonObject.get("share1");
+		   System.out.println("L&T"+share2);
+	       Iterator<String> iterator2 = list2.iterator();
+			while (iterator2.hasNext())
+			{
+				System.out.println(iterator2.next()); 
+			}   
+		case 3:System.out.println("Details of Syntel ");
+		   String share3=jsonObject.get("Syntel").toString();
+		   JSONArray list3 = (JSONArray) jsonObject.get("share3");
+		   System.out.println("Syntel"+share3);
+		  @SuppressWarnings("unchecked") Iterator<String> iterator3 = list3.iterator();
+			while (iterator3.hasNext())
+			{
+				System.out.println(iterator3.next()); 
+			} 
+		}
+	
+	} catch (Exception e) 
+	{
+		e.printStackTrace();
+	}
+}
+				
+		
+		
+}
+
+	
+	
+	
 	
 
-}
+
+	
+	
+	
+
+		
+	
+	
+	
+	
+
+
